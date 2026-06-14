@@ -1,11 +1,11 @@
 [
   {
     "userId": "usr_001",
-    "token": "a08852be6b5ed90488a91c7e95346e10125210b862309fea",
-    "expiresAt": "2026-06-14T23:08:58.695Z",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.124.2 Chrome/148.0.7778.97 Electron/42.2.0 Safari/537.36",
-    "id": "ses_mqdolsjre5mwm4",
-    "createdAt": "2026-06-14T11:08:58.695Z",
-    "updatedAt": "2026-06-14T11:08:58.695Z"
+    "token": "f5cb904c09b33e6624b8b612d8ae58f0c8da2b0032dc71c0",
+    "expiresAt": "2026-06-14T23:39:09.786Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "id": "ses_mqdpolzu2iux9s",
+    "createdAt": "2026-06-14T11:39:09.786Z",
+    "updatedAt": "2026-06-14T11:39:09.786Z"
   }
 ]

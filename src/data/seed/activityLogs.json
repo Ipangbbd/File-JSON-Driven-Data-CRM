@@ -130,14 +130,54 @@
     "updatedAt": "2026-06-14T09:52:31.003Z"
   },
   {
+    "userId": "usr_004",
+    "entity": "caseJourneys",
+    "entityId": "jrn_mqdmkhazhyvt0h",
+    "action": "create",
+    "message": "Created case journey JRN-105.",
+    "id": "act_mqdmkhb0z72vxl",
+    "createdAt": "2026-06-14T10:11:58.236Z",
+    "updatedAt": "2026-06-14T10:11:58.236Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "tasks",
+    "entityId": "tsk_mqdmm1paa3gy79",
+    "action": "create",
+    "message": "Created task Create meta ads.",
+    "id": "act_mqdmm1pa5vzaj2",
+    "createdAt": "2026-06-14T10:13:11.326Z",
+    "updatedAt": "2026-06-14T10:13:11.326Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "tasks",
+    "entityId": "tsk_mqdmm1paa3gy79",
+    "action": "complete",
+    "message": "Set \"Create meta ads\" to completed.",
+    "id": "act_mqdmmxs26wt769",
+    "createdAt": "2026-06-14T10:13:52.898Z",
+    "updatedAt": "2026-06-14T10:13:52.898Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "users",
+    "entityId": "usr_004",
+    "action": "logout",
+    "message": "Lukas Brandt signed out.",
+    "id": "act_mqdmos4mupnjgt",
+    "createdAt": "2026-06-14T10:15:18.886Z",
+    "updatedAt": "2026-06-14T10:15:18.886Z"
+  },
+  {
     "userId": "usr_001",
     "entity": "users",
     "entityId": "usr_001",
     "action": "login",
     "message": "Alexandra Reyes signed in.",
-    "id": "act_mqdm682r7xkpi2",
-    "createdAt": "2026-06-14T10:00:53.091Z",
-    "updatedAt": "2026-06-14T10:00:53.091Z"
+    "id": "act_mqdmotvxaqhnho",
+    "createdAt": "2026-06-14T10:15:21.165Z",
+    "updatedAt": "2026-06-14T10:15:21.165Z"
   },
   {
     "userId": "usr_001",
@@ -145,29 +185,29 @@
     "entityId": "usr_001",
     "action": "logout",
     "message": "Alexandra Reyes signed out.",
-    "id": "act_mqdm8d1p3dfreb",
-    "createdAt": "2026-06-14T10:02:32.845Z",
-    "updatedAt": "2026-06-14T10:02:32.845Z"
+    "id": "act_mqdp7x2deis1i4",
+    "createdAt": "2026-06-14T11:26:10.981Z",
+    "updatedAt": "2026-06-14T11:26:10.981Z"
   },
   {
-    "userId": "usr_002",
+    "userId": "usr_004",
     "entity": "users",
-    "entityId": "usr_002",
+    "entityId": "usr_004",
     "action": "login",
-    "message": "Daniel Okafor signed in.",
-    "id": "act_mqdm8h28gfu4mf",
-    "createdAt": "2026-06-14T10:02:38.048Z",
-    "updatedAt": "2026-06-14T10:02:38.048Z"
+    "message": "Lukas Brandt signed in.",
+    "id": "act_mqdp7zo66h08rw",
+    "createdAt": "2026-06-14T11:26:14.358Z",
+    "updatedAt": "2026-06-14T11:26:14.358Z"
   },
   {
-    "userId": "usr_002",
+    "userId": "usr_004",
     "entity": "users",
-    "entityId": "usr_002",
+    "entityId": "usr_004",
     "action": "logout",
-    "message": "Daniel Okafor signed out.",
-    "id": "act_mqdolq5f6zaxhc",
-    "createdAt": "2026-06-14T11:08:55.587Z",
-    "updatedAt": "2026-06-14T11:08:55.587Z"
+    "message": "Lukas Brandt signed out.",
+    "id": "act_mqdp89z0y7qonk",
+    "createdAt": "2026-06-14T11:26:27.708Z",
+    "updatedAt": "2026-06-14T11:26:27.708Z"
   },
   {
     "userId": "usr_001",
@@ -175,8 +215,48 @@
     "entityId": "usr_001",
     "action": "login",
     "message": "Alexandra Reyes signed in.",
-    "id": "act_mqdolsjri4a2z3",
-    "createdAt": "2026-06-14T11:08:58.695Z",
-    "updatedAt": "2026-06-14T11:08:58.695Z"
+    "id": "act_mqdp8f3koqxcjl",
+    "createdAt": "2026-06-14T11:26:34.352Z",
+    "updatedAt": "2026-06-14T11:26:34.352Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "logout",
+    "message": "Alexandra Reyes signed out.",
+    "id": "act_mqdpo337g3127t",
+    "createdAt": "2026-06-14T11:38:45.283Z",
+    "updatedAt": "2026-06-14T11:38:45.283Z"
+  },
+  {
+    "userId": "usr_003",
+    "entity": "users",
+    "entityId": "usr_003",
+    "action": "login",
+    "message": "Mariko Sato signed in.",
+    "id": "act_mqdpo61x96iipc",
+    "createdAt": "2026-06-14T11:38:49.125Z",
+    "updatedAt": "2026-06-14T11:38:49.125Z"
+  },
+  {
+    "userId": "usr_003",
+    "entity": "users",
+    "entityId": "usr_003",
+    "action": "logout",
+    "message": "Mariko Sato signed out.",
+    "id": "act_mqdpojsidxashk",
+    "createdAt": "2026-06-14T11:39:06.930Z",
+    "updatedAt": "2026-06-14T11:39:06.930Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "login",
+    "message": "Alexandra Reyes signed in.",
+    "id": "act_mqdpolzu4d5brn",
+    "createdAt": "2026-06-14T11:39:09.786Z",
+    "updatedAt": "2026-06-14T11:39:09.786Z"
   }
 ]

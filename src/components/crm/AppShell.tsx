@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
   Bell,
   Briefcase,
@@ -50,7 +50,15 @@ interface NavItem {
 export function AppShell({ children }: { children: ReactNode }) {
   const { user, logout, can } = useAuth();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [collapsed, setCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem("northwind.sidebar.collapsed") === "1";
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -72,32 +80,74 @@ export function AppShell({ children }: { children: ReactNode }) {
   if (!user) return null;
 
   return (
-    <div className="flex min-h-screen bg-canvas">
+    <div className={`flex min-h-screen bg-canvas ${collapsed ? "sidebar-collapsed" : ""}`}>
       {/* Compact icon rail (fixed on large screens) */}
-      <aside className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:w-[72px] flex-col items-center justify-between border-r border-border bg-sidebar py-6 lg:flex">
-        <div className="flex flex-col items-center gap-2">
-          <Link to="/" className="grid h-11 w-11 place-items-center rounded-2xl bg-primary text-primary-foreground">
-            <Shield className="h-5 w-5" />
-          </Link>
-          <div className="mt-4 flex flex-col gap-1">
-            <RailButton icon={<ChevronLeft className="h-4 w-4" />} />
-            <RailButton icon={<Send className="h-4 w-4" />} />
-            <RailButton icon={<Plus className="h-4 w-4" />} />
-            <RailButton icon={<Bell className="h-4 w-4" />} />
+      <aside className={`hidden lg:fixed lg:inset-y-0 lg:left-0 flex-col justify-between border-r border-border bg-sidebar py-6 lg:flex lg:z-40 ${collapsed ? "lg:w-[80px]" : "lg:w-[220px]"}`}>
+        <div className="flex flex-col">
+          <div className={`flex items-center gap-3 px-4 py-3 ${collapsed ? "justify-center" : ""}`}>
+            <Link to="/" className="grid h-11 w-11 place-items-center rounded-2xl bg-primary text-primary-foreground">
+              <Shield className="h-5 w-5" />
+            </Link>
+            {!collapsed && <div className="text-sm font-semibold">Northwind CRM</div>}
+          </div>
+
+          <div className="mt-4 flex flex-col gap-2 px-2">
+            <RailButton
+              icon={<ChevronLeft className="h-4 w-4" />}
+              label={collapsed ? undefined : "Toggle sidebar"}
+              collapsed={collapsed}
+              onClick={() => {
+                setCollapsed((c) => {
+                  const next = !c;
+                  try { localStorage.setItem("northwind.sidebar.collapsed", next ? "1" : "0"); } catch {}
+                  return next;
+                });
+              }}
+            />
+            <RailButton
+              icon={<Send className="h-4 w-4" />}
+              label={collapsed ? undefined : "Messages"}
+              collapsed={collapsed}
+              onClick={() => navigate({ to: "/messages" })}
+            />
+            <RailButton
+              icon={<Plus className="h-4 w-4" />}
+              label={collapsed ? undefined : "New case"}
+              collapsed={collapsed}
+              onClick={() => navigate({ to: "/journeys/new" })}
+            />
+            <RailButton
+              icon={<Bell className="h-4 w-4" />}
+              label={collapsed ? undefined : "Notifications"}
+              collapsed={collapsed}
+              onClick={() => navigate({ to: "/notifications" })}
+            />
           </div>
         </div>
-        <div className="flex flex-col items-center gap-2">
-          <RailButton
-            icon={theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          />
-          <Link to={ROUTES.profile.path} className="grid h-10 w-10 place-items-center rounded-full">
+
+        <div className={`flex flex-col items-center gap-3 px-4 py-4 mt-auto mb-4 ${collapsed ? "" : "items-start"}`}>
+          <div className={`w-full flex ${collapsed ? "justify-center" : "justify-start"}`}>
+            <RailButton
+              icon={theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              label={collapsed ? undefined : "Toggle theme"}
+              collapsed={collapsed}
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            />
+          </div>
+
+          <Link to={ROUTES.profile.path} className={`flex items-center gap-3 ${collapsed ? "justify-center" : "justify-start"} w-full`}>
             <UserAvatar initials={user.initials} color={user.avatarColor} imageSrc={user.avatarImage} size="md" />
+            {!collapsed && (
+              <div className="flex flex-col text-sm">
+                <span className="font-medium">{user.firstName} {user.lastName}</span>
+                <span className="text-xs text-muted-foreground">{ROLE_LABELS[user.role]}</span>
+              </div>
+            )}
           </Link>
         </div>
       </aside>
 
-      <div className="flex min-w-0 flex-1 flex-col lg:pl-[72px]">
+      <div className={`flex min-w-0 flex-1 flex-col ${collapsed ? "lg:pl-[80px]" : "lg:pl-[220px]"}`}>
         <TopBar pathname={pathname} navigation={navigation} onLogout={logout} />
         <main className="mx-auto w-full max-w-[1600px] flex-1 px-6 pb-12 pt-16 lg:px-10">{children}</main>
       </div>
@@ -105,14 +155,15 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 }
 
-function RailButton({ icon, onClick }: { icon: ReactNode; onClick?: () => void }) {
+function RailButton({ icon, label, collapsed, onClick }: { icon: ReactNode; label?: string; collapsed?: boolean; onClick?: () => void }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="grid h-10 w-10 place-items-center rounded-full text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+      className="flex items-center gap-3 rounded-full px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground"
     >
-      {icon}
+      <span className="grid h-10 w-10 place-items-center">{icon}</span>
+      {!collapsed && label && <span className="text-sm font-medium">{label}</span>}
     </button>
   );
 }

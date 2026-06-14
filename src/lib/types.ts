@@ -175,6 +175,7 @@ export interface DatabaseSchema {
   knowledgeItems: KnowledgeItem[];
   activityLogs: ActivityLog[];
   notifications: Notification[];
+  messages: Message[];
 }
 
 export type CollectionName = keyof DatabaseSchema;

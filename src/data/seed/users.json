@@ -10,9 +10,10 @@
     "avatarColor": "#0F172A",
     "initials": "AR",
     "status": "active",
-    "lastLoginAt": "2026-06-14T11:08:58.695Z",
+    "lastLoginAt": "2026-06-14T11:39:09.786Z",
     "createdAt": "2024-01-12T09:00:00.000Z",
-    "updatedAt": "2026-06-14T11:08:58.695Z"
+    "updatedAt": "2026-06-14T11:39:09.786Z",
+    "avatarImage": "/data/image/users_image/usr_001-1781433455828.jpeg"
   },
   {
     "id": "usr_002",
@@ -25,9 +26,9 @@
     "avatarColor": "#1D4ED8",
     "initials": "DO",
     "status": "active",
-    "lastLoginAt": "2026-06-14T10:02:38.048Z",
+    "lastLoginAt": null,
     "createdAt": "2024-01-15T09:00:00.000Z",
-    "updatedAt": "2026-06-14T10:02:38.048Z"
+    "updatedAt": "2024-01-15T09:00:00.000Z"
   },
   {
     "id": "usr_003",
@@ -40,9 +41,9 @@
     "avatarColor": "#0EA5A4",
     "initials": "MS",
     "status": "active",
-    "lastLoginAt": null,
+    "lastLoginAt": "2026-06-14T11:38:49.125Z",
     "createdAt": "2024-02-02T09:00:00.000Z",
-    "updatedAt": "2024-02-02T09:00:00.000Z"
+    "updatedAt": "2026-06-14T11:38:49.125Z"
   },
   {
     "id": "usr_004",
@@ -55,9 +56,9 @@
     "avatarColor": "#9333EA",
     "initials": "LB",
     "status": "active",
-    "lastLoginAt": null,
+    "lastLoginAt": "2026-06-14T11:26:14.358Z",
     "createdAt": "2024-02-10T09:00:00.000Z",
-    "updatedAt": "2024-02-10T09:00:00.000Z"
+    "updatedAt": "2026-06-14T11:26:14.358Z"
   },
   {
     "id": "usr_005",

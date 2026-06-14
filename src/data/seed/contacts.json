@@ -70,5 +70,18 @@
     "id": "cnt_mqdmirya1vq671",
     "createdAt": "2026-06-14T10:10:38.722Z",
     "updatedAt": "2026-06-14T10:10:38.722Z"
+  },
+  {
+    "companyId": "cmp_mqdmh15k5p6v6q",
+    "firstName": "Valencia",
+    "lastName": "Aliyya",
+    "email": "Valencia.ceo@gmail.com",
+    "phone": "+6285890081551",
+    "role": "CEO",
+    "avatarColor": "fuchsia",
+    "avatarImage": "/data/image/customers_image/Valencia-Aliyya-1781437528077.png",
+    "id": "cnt_mqdpwq10peyisr",
+    "createdAt": "2026-06-14T11:45:28.260Z",
+    "updatedAt": "2026-06-14T11:45:28.260Z"
   }
 ]

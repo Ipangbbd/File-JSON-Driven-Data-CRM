@@ -20,6 +20,7 @@ import tasks from "@/data/seed/tasks.json";
 import knowledgeItems from "@/data/seed/knowledgeItems.json";
 import notifications from "@/data/seed/notifications.json";
 import activityLogs from "@/data/seed/activityLogs.json";
+import messages from "@/data/seed/messages.json";
 
 const STORAGE_NAMESPACE = "northwind.crm.v1";
 const SCHEMA_VERSION_KEY = `${STORAGE_NAMESPACE}.schemaVersion`;
@@ -36,6 +37,7 @@ const SEEDS: DatabaseSchema = {
   knowledgeItems: knowledgeItems as DatabaseSchema["knowledgeItems"],
   notifications: notifications as DatabaseSchema["notifications"],
   activityLogs: activityLogs as DatabaseSchema["activityLogs"],
+  messages: messages as DatabaseSchema["messages"],
 };
 
 type ChangeListener = (collection: CollectionName) => void;

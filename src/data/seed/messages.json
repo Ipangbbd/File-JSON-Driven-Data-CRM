@@ -1,0 +1,20 @@
+[
+  {
+    "fromId": "usr_001",
+    "toId": "usr_003",
+    "body": "hello",
+    "id": "undefined_mqdpo0mnp8ib0m",
+    "createdAt": "2026-06-14T11:38:42.095Z",
+    "updatedAt": "2026-06-14T11:38:56.792Z",
+    "readAt": "2026-06-14T11:38:56.792Z"
+  },
+  {
+    "fromId": "usr_003",
+    "toId": "usr_001",
+    "body": "hello back",
+    "id": "undefined_mqdpohoztq66mg",
+    "createdAt": "2026-06-14T11:39:04.211Z",
+    "updatedAt": "2026-06-14T11:39:14.808Z",
+    "readAt": "2026-06-14T11:39:14.808Z"
+  }
+]
