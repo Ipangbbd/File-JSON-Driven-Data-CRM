@@ -126,6 +126,22 @@ export const journeysService = {
     return journey;
   },
 
+  update(
+    id: ID,
+    patch: Partial<Omit<CaseJourney, "id" | "createdAt" | "reference" | "companyId" | "primaryContactId">>,
+    actorId: ID,
+  ): CaseJourney {
+    const updated = journeysRepo.update(id, patch);
+    activityService.log({
+      userId: actorId,
+      entity: "caseJourneys",
+      entityId: id,
+      action: "update",
+      message: `Updated case journey information.`,
+    });
+    return updated;
+  },
+
   updateStatus(id: ID, status: CaseJourney["status"], actorId: ID): CaseJourney {
     const updated = journeysRepo.update(id, { status });
     activityService.log({

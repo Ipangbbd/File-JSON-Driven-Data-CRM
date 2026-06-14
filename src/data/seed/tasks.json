@@ -1,32 +1,386 @@
 [
-  { "id": "tsk_001", "journeyId": "jrn_001", "stageId": "stg_001", "title": "Allocate Case to User", "description": "Assign primary support owner and confirm SLA tier.", "status": "completed", "assigneeId": "usr_003", "dueDate": "2025-09-30T17:00:00.000Z", "position": 0, "dependsOn": [], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T11:00:00.000Z" },
-  { "id": "tsk_002", "journeyId": "jrn_001", "stageId": "stg_001", "title": "Acknowledge Case Receipt to Customer", "description": "Send templated acknowledgement to the primary contact.", "status": "completed", "assigneeId": "usr_006", "dueDate": "2025-09-30T18:00:00.000Z", "position": 1, "dependsOn": ["tsk_001"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T12:00:00.000Z" },
-
-  { "id": "tsk_003", "journeyId": "jrn_001", "stageId": "stg_002", "title": "Identify Issue Category", "description": "Classify the case against the service taxonomy.", "status": "completed", "assigneeId": "usr_003", "dueDate": "2025-10-01T17:00:00.000Z", "position": 0, "dependsOn": ["tsk_002"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-01T10:00:00.000Z" },
-  { "id": "tsk_004", "journeyId": "jrn_001", "stageId": "stg_002", "title": "Identify Issue Severity", "description": "Score the impact and reach to confirm priority tier.", "status": "completed", "assigneeId": "usr_003", "dueDate": "2025-10-01T17:00:00.000Z", "position": 1, "dependsOn": ["tsk_003"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-01T12:00:00.000Z" },
-  { "id": "tsk_005", "journeyId": "jrn_001", "stageId": "stg_002", "title": "Identify Issue Impact", "description": "Quantify affected sites, users and revenue exposure.", "status": "completed", "assigneeId": "usr_005", "dueDate": "2025-10-02T17:00:00.000Z", "position": 2, "dependsOn": ["tsk_004"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-02T11:00:00.000Z" },
-  { "id": "tsk_006", "journeyId": "jrn_001", "stageId": "stg_002", "title": "Allocate to Resolution Team", "description": "Route to specialised engineering pod with the right oncall.", "status": "in_progress", "assigneeId": "usr_002", "dueDate": "2025-10-03T17:00:00.000Z", "position": 3, "dependsOn": ["tsk_005"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-03T09:00:00.000Z" },
-  { "id": "tsk_007", "journeyId": "jrn_001", "stageId": "stg_002", "title": "Advise Customer of Resolution Estimate", "description": "Share a written ETA and rollback plan with the customer.", "status": "pending", "assigneeId": "usr_006", "dueDate": "2025-10-04T17:00:00.000Z", "position": 4, "dependsOn": ["tsk_006"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-
-  { "id": "tsk_008", "journeyId": "jrn_001", "stageId": "stg_003", "title": "Identify Issue Dependencies", "description": "Map upstream telemetry services and infra entry points.", "status": "pending", "assigneeId": null, "dueDate": "2025-10-05T17:00:00.000Z", "position": 0, "dependsOn": ["tsk_006"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_009", "journeyId": "jrn_001", "stageId": "stg_003", "title": "Identify Issue Resolution", "description": "Propose the corrective change and risk envelope.", "status": "pending", "assigneeId": null, "dueDate": "2025-10-06T17:00:00.000Z", "position": 1, "dependsOn": ["tsk_008"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_010", "journeyId": "jrn_001", "stageId": "stg_003", "title": "Estimate Resolution Time", "description": "Provide effort-based estimate for change management review.", "status": "in_progress", "assigneeId": "usr_005", "dueDate": "2025-10-06T17:00:00.000Z", "position": 2, "dependsOn": ["tsk_009"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-04T10:00:00.000Z" },
-  { "id": "tsk_011", "journeyId": "jrn_001", "stageId": "stg_003", "title": "Advise Customer of Resolution Estimate", "description": "Confirm window and downtime expectations with the contact.", "status": "pending", "assigneeId": "usr_006", "dueDate": "2025-10-07T17:00:00.000Z", "position": 3, "dependsOn": ["tsk_010"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_012", "journeyId": "jrn_001", "stageId": "stg_003", "title": "Advise Customer Issue Resolved", "description": "Close the loop with the customer once verified in production.", "status": "pending", "assigneeId": null, "dueDate": "2025-10-08T17:00:00.000Z", "position": 4, "dependsOn": ["tsk_011"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-
-  { "id": "tsk_013", "journeyId": "jrn_001", "stageId": "stg_004", "title": "Request Processing", "description": "Open follow-up request to harden monitoring.", "status": "in_progress", "assigneeId": "usr_005", "dueDate": "2025-10-09T17:00:00.000Z", "position": 0, "dependsOn": [], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-04T11:00:00.000Z" },
-  { "id": "tsk_014", "journeyId": "jrn_001", "stageId": "stg_004", "title": "Problem Resolution", "description": "Open problem record for root-cause investigation.", "status": "pending", "assigneeId": null, "dueDate": "2025-10-11T17:00:00.000Z", "position": 1, "dependsOn": ["tsk_013"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_015", "journeyId": "jrn_001", "stageId": "stg_004", "title": "Customer Communication", "description": "Schedule a post-incident debrief with the customer.", "status": "pending", "assigneeId": "usr_006", "dueDate": "2025-10-10T17:00:00.000Z", "position": 2, "dependsOn": ["tsk_013"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_016", "journeyId": "jrn_001", "stageId": "stg_004", "title": "Testing and Verification", "description": "Run regression suite covering nightly telemetry sync.", "status": "pending", "assigneeId": null, "dueDate": "2025-10-10T17:00:00.000Z", "position": 3, "dependsOn": ["tsk_013"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_017", "journeyId": "jrn_001", "stageId": "stg_004", "title": "Customer Notification", "description": "Publish customer-facing status update in the portal.", "status": "pending", "assigneeId": "usr_006", "dueDate": "2025-10-11T17:00:00.000Z", "position": 4, "dependsOn": ["tsk_015"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "tsk_018", "journeyId": "jrn_001", "stageId": "stg_004", "title": "Customer Satisfaction", "description": "Capture CSAT and feed into the quarterly QBR.", "status": "pending", "assigneeId": "usr_004", "dueDate": "2025-10-12T17:00:00.000Z", "position": 5, "dependsOn": ["tsk_017"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-
-  { "id": "tsk_019", "journeyId": "jrn_002", "stageId": "stg_005", "title": "Allocate Case to User", "description": "Assign primary owner for retail tier.", "status": "completed", "assigneeId": "usr_003", "dueDate": "2025-09-28T17:00:00.000Z", "position": 0, "dependsOn": [], "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T11:00:00.000Z" },
-  { "id": "tsk_020", "journeyId": "jrn_002", "stageId": "stg_006", "title": "Identify Issue Category", "description": "Classify against POS taxonomy.", "status": "in_progress", "assigneeId": "usr_003", "dueDate": "2025-10-01T17:00:00.000Z", "position": 0, "dependsOn": ["tsk_019"], "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-10-01T09:00:00.000Z" },
-  { "id": "tsk_021", "journeyId": "jrn_002", "stageId": "stg_007", "title": "Estimate Resolution Time", "description": "Define remediation window.", "status": "pending", "assigneeId": "usr_005", "dueDate": "2025-10-05T17:00:00.000Z", "position": 0, "dependsOn": ["tsk_020"], "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
-  { "id": "tsk_022", "journeyId": "jrn_002", "stageId": "stg_008", "title": "Customer Communication", "description": "Hand back to account success.", "status": "pending", "assigneeId": "usr_006", "dueDate": "2025-10-08T17:00:00.000Z", "position": 0, "dependsOn": [], "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
-
-  { "id": "tsk_023", "journeyId": "jrn_003", "stageId": "stg_009", "title": "Allocate Case to User", "description": "Allocate to plant engineering pod.", "status": "completed", "assigneeId": "usr_005", "dueDate": "2025-10-01T17:00:00.000Z", "position": 0, "dependsOn": [], "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-01T10:00:00.000Z" },
-  { "id": "tsk_024", "journeyId": "jrn_003", "stageId": "stg_010", "title": "Identify Issue Impact", "description": "Quantify downtime exposure.", "status": "blocked", "assigneeId": "usr_005", "dueDate": "2025-10-03T17:00:00.000Z", "position": 0, "dependsOn": ["tsk_023"], "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-04T09:00:00.000Z" },
-  { "id": "tsk_025", "journeyId": "jrn_003", "stageId": "stg_011", "title": "Identify Issue Resolution", "description": "Plan rollback of v4.2 release.", "status": "in_progress", "assigneeId": "usr_005", "dueDate": "2025-10-05T17:00:00.000Z", "position": 0, "dependsOn": [], "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-05T09:00:00.000Z" }
+  {
+    "id": "tsk_001",
+    "journeyId": "jrn_001",
+    "stageId": "stg_001",
+    "title": "Allocate Case to User",
+    "description": "Assign primary support owner and confirm SLA tier.",
+    "status": "completed",
+    "assigneeId": "usr_003",
+    "dueDate": "2025-09-30T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T11:00:00.000Z"
+  },
+  {
+    "id": "tsk_002",
+    "journeyId": "jrn_001",
+    "stageId": "stg_001",
+    "title": "Acknowledge Case Receipt to Customer",
+    "description": "Send templated acknowledgement to the primary contact.",
+    "status": "completed",
+    "assigneeId": "usr_006",
+    "dueDate": "2025-09-30T18:00:00.000Z",
+    "position": 1,
+    "dependsOn": [
+      "tsk_001"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T12:00:00.000Z"
+  },
+  {
+    "id": "tsk_003",
+    "journeyId": "jrn_001",
+    "stageId": "stg_002",
+    "title": "Identify Issue Category",
+    "description": "Classify the case against the service taxonomy.",
+    "status": "completed",
+    "assigneeId": "usr_003",
+    "dueDate": "2025-10-01T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [
+      "tsk_002"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-10-01T10:00:00.000Z"
+  },
+  {
+    "id": "tsk_005",
+    "journeyId": "jrn_001",
+    "stageId": "stg_002",
+    "title": "Identify Issue Impact",
+    "description": "Quantify affected sites, users and revenue exposure.",
+    "status": "completed",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-02T17:00:00.000Z",
+    "position": 2,
+    "dependsOn": [],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2026-06-14T10:14:51.336Z"
+  },
+  {
+    "id": "tsk_006",
+    "journeyId": "jrn_001",
+    "stageId": "stg_002",
+    "title": "Allocate to Resolution Team",
+    "description": "Route to specialised engineering pod with the right oncall.",
+    "status": "in_progress",
+    "assigneeId": "usr_002",
+    "dueDate": "2025-10-03T17:00:00.000Z",
+    "position": 3,
+    "dependsOn": [
+      "tsk_005"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-10-03T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_007",
+    "journeyId": "jrn_001",
+    "stageId": "stg_002",
+    "title": "Advise Customer of Resolution Estimate",
+    "description": "Share a written ETA and rollback plan with the customer.",
+    "status": "pending",
+    "assigneeId": "usr_006",
+    "dueDate": "2025-10-04T17:00:00.000Z",
+    "position": 4,
+    "dependsOn": [
+      "tsk_006"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_008",
+    "journeyId": "jrn_001",
+    "stageId": "stg_003",
+    "title": "Identify Issue Dependencies",
+    "description": "Map upstream telemetry services and infra entry points.",
+    "status": "pending",
+    "assigneeId": null,
+    "dueDate": "2025-10-05T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [
+      "tsk_006"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_009",
+    "journeyId": "jrn_001",
+    "stageId": "stg_003",
+    "title": "Identify Issue Resolution",
+    "description": "Propose the corrective change and risk envelope.",
+    "status": "pending",
+    "assigneeId": null,
+    "dueDate": "2025-10-06T17:00:00.000Z",
+    "position": 1,
+    "dependsOn": [
+      "tsk_008"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_010",
+    "journeyId": "jrn_001",
+    "stageId": "stg_003",
+    "title": "Estimate Resolution Time",
+    "description": "Provide effort-based estimate for change management review.",
+    "status": "in_progress",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-06T17:00:00.000Z",
+    "position": 2,
+    "dependsOn": [
+      "tsk_009"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-10-04T10:00:00.000Z"
+  },
+  {
+    "id": "tsk_011",
+    "journeyId": "jrn_001",
+    "stageId": "stg_003",
+    "title": "Advise Customer of Resolution Estimate",
+    "description": "Confirm window and downtime expectations with the contact.",
+    "status": "pending",
+    "assigneeId": "usr_006",
+    "dueDate": "2025-10-07T17:00:00.000Z",
+    "position": 3,
+    "dependsOn": [
+      "tsk_010"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_012",
+    "journeyId": "jrn_001",
+    "stageId": "stg_003",
+    "title": "Advise Customer Issue Resolved",
+    "description": "Close the loop with the customer once verified in production.",
+    "status": "pending",
+    "assigneeId": null,
+    "dueDate": "2025-10-08T17:00:00.000Z",
+    "position": 4,
+    "dependsOn": [
+      "tsk_011"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_013",
+    "journeyId": "jrn_001",
+    "stageId": "stg_004",
+    "title": "Request Processing",
+    "description": "Open follow-up request to harden monitoring.",
+    "status": "in_progress",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-09T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-10-04T11:00:00.000Z"
+  },
+  {
+    "id": "tsk_014",
+    "journeyId": "jrn_001",
+    "stageId": "stg_004",
+    "title": "Problem Resolution",
+    "description": "Open problem record for root-cause investigation.",
+    "status": "pending",
+    "assigneeId": null,
+    "dueDate": "2025-10-11T17:00:00.000Z",
+    "position": 1,
+    "dependsOn": [
+      "tsk_013"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_015",
+    "journeyId": "jrn_001",
+    "stageId": "stg_004",
+    "title": "Customer Communication",
+    "description": "Schedule a post-incident debrief with the customer.",
+    "status": "pending",
+    "assigneeId": "usr_006",
+    "dueDate": "2025-10-10T17:00:00.000Z",
+    "position": 2,
+    "dependsOn": [
+      "tsk_013"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_016",
+    "journeyId": "jrn_001",
+    "stageId": "stg_004",
+    "title": "Testing and Verification",
+    "description": "Run regression suite covering nightly telemetry sync.",
+    "status": "pending",
+    "assigneeId": null,
+    "dueDate": "2025-10-10T17:00:00.000Z",
+    "position": 3,
+    "dependsOn": [
+      "tsk_013"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_017",
+    "journeyId": "jrn_001",
+    "stageId": "stg_004",
+    "title": "Customer Notification",
+    "description": "Publish customer-facing status update in the portal.",
+    "status": "pending",
+    "assigneeId": "usr_006",
+    "dueDate": "2025-10-11T17:00:00.000Z",
+    "position": 4,
+    "dependsOn": [
+      "tsk_015"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_018",
+    "journeyId": "jrn_001",
+    "stageId": "stg_004",
+    "title": "Customer Satisfaction",
+    "description": "Capture CSAT and feed into the quarterly QBR.",
+    "status": "pending",
+    "assigneeId": "usr_004",
+    "dueDate": "2025-10-12T17:00:00.000Z",
+    "position": 5,
+    "dependsOn": [
+      "tsk_017"
+    ],
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_019",
+    "journeyId": "jrn_002",
+    "stageId": "stg_005",
+    "title": "Allocate Case to User",
+    "description": "Assign primary owner for retail tier.",
+    "status": "completed",
+    "assigneeId": "usr_003",
+    "dueDate": "2025-09-28T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T11:00:00.000Z"
+  },
+  {
+    "id": "tsk_020",
+    "journeyId": "jrn_002",
+    "stageId": "stg_006",
+    "title": "Identify Issue Category",
+    "description": "Classify against POS taxonomy.",
+    "status": "completed",
+    "assigneeId": "usr_003",
+    "dueDate": "2025-10-01T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [
+      "tsk_019"
+    ],
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2026-06-14T09:14:13.532Z"
+  },
+  {
+    "id": "tsk_021",
+    "journeyId": "jrn_002",
+    "stageId": "stg_007",
+    "title": "Estimate Resolution Time",
+    "description": "Define remediation window.",
+    "status": "pending",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-05T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [
+      "tsk_020"
+    ],
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_022",
+    "journeyId": "jrn_002",
+    "stageId": "stg_008",
+    "title": "Customer Communication",
+    "description": "Hand back to account success.",
+    "status": "pending",
+    "assigneeId": "usr_006",
+    "dueDate": "2025-10-08T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "tsk_023",
+    "journeyId": "jrn_003",
+    "stageId": "stg_009",
+    "title": "Allocate Case to User",
+    "description": "Allocate to plant engineering pod.",
+    "status": "completed",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-01T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-01T10:00:00.000Z"
+  },
+  {
+    "id": "tsk_024",
+    "journeyId": "jrn_003",
+    "stageId": "stg_010",
+    "title": "Identify Issue Impact",
+    "description": "Quantify downtime exposure.",
+    "status": "completed",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-03T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [
+      "tsk_023"
+    ],
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2026-06-14T05:52:04.763Z"
+  },
+  {
+    "id": "tsk_025",
+    "journeyId": "jrn_003",
+    "stageId": "stg_011",
+    "title": "Identify Issue Resolution",
+    "description": "Plan rollback of v4.2 release.",
+    "status": "in_progress",
+    "assigneeId": "usr_005",
+    "dueDate": "2025-10-05T17:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-05T09:00:00.000Z"
+  },
+  {
+    "journeyId": "jrn_mqdmkhazhyvt0h",
+    "stageId": "stg_mqdmkhaz3k5hz6",
+    "title": "Create meta ads",
+    "description": "Meta ads creation for our client",
+    "status": "completed",
+    "assigneeId": "usr_003",
+    "dueDate": "2026-06-13T00:00:00.000Z",
+    "position": 0,
+    "dependsOn": [],
+    "id": "tsk_mqdmm1paa3gy79",
+    "createdAt": "2026-06-14T10:13:11.326Z",
+    "updatedAt": "2026-06-14T10:13:52.898Z"
+  }
 ]

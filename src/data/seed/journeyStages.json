@@ -1,16 +1,182 @@
 [
-  { "id": "stg_001", "journeyId": "jrn_001", "kind": "case_allocation", "title": "Case Allocation", "position": 0, "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "stg_002", "journeyId": "jrn_001", "kind": "issue_identification", "title": "Issue Identification", "position": 1, "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "stg_003", "journeyId": "jrn_001", "kind": "technical_resolution", "title": "Technical Resolution", "position": 2, "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "stg_004", "journeyId": "jrn_001", "kind": "new_tasks", "title": "New Tasks", "position": 3, "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-
-  { "id": "stg_005", "journeyId": "jrn_002", "kind": "case_allocation", "title": "Case Allocation", "position": 0, "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
-  { "id": "stg_006", "journeyId": "jrn_002", "kind": "issue_identification", "title": "Issue Identification", "position": 1, "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
-  { "id": "stg_007", "journeyId": "jrn_002", "kind": "technical_resolution", "title": "Technical Resolution", "position": 2, "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
-  { "id": "stg_008", "journeyId": "jrn_002", "kind": "new_tasks", "title": "New Tasks", "position": 3, "createdAt": "2025-09-28T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
-
-  { "id": "stg_009", "journeyId": "jrn_003", "kind": "case_allocation", "title": "Case Allocation", "position": 0, "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-01T09:00:00.000Z" },
-  { "id": "stg_010", "journeyId": "jrn_003", "kind": "issue_identification", "title": "Issue Identification", "position": 1, "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-01T09:00:00.000Z" },
-  { "id": "stg_011", "journeyId": "jrn_003", "kind": "technical_resolution", "title": "Technical Resolution", "position": 2, "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-01T09:00:00.000Z" },
-  { "id": "stg_012", "journeyId": "jrn_003", "kind": "new_tasks", "title": "New Tasks", "position": 3, "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-01T09:00:00.000Z" }
+  {
+    "id": "stg_001",
+    "journeyId": "jrn_001",
+    "kind": "case_allocation",
+    "title": "Case Allocation",
+    "position": 0,
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "stg_002",
+    "journeyId": "jrn_001",
+    "kind": "issue_identification",
+    "title": "Issue Identification",
+    "position": 1,
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "stg_003",
+    "journeyId": "jrn_001",
+    "kind": "technical_resolution",
+    "title": "Technical Resolution",
+    "position": 2,
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "stg_004",
+    "journeyId": "jrn_001",
+    "kind": "new_tasks",
+    "title": "New Tasks",
+    "position": 3,
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "stg_005",
+    "journeyId": "jrn_002",
+    "kind": "case_allocation",
+    "title": "Case Allocation",
+    "position": 0,
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "stg_006",
+    "journeyId": "jrn_002",
+    "kind": "issue_identification",
+    "title": "Issue Identification",
+    "position": 1,
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "stg_007",
+    "journeyId": "jrn_002",
+    "kind": "technical_resolution",
+    "title": "Technical Resolution",
+    "position": 2,
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "stg_008",
+    "journeyId": "jrn_002",
+    "kind": "new_tasks",
+    "title": "New Tasks",
+    "position": 3,
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "stg_009",
+    "journeyId": "jrn_003",
+    "kind": "case_allocation",
+    "title": "Case Allocation",
+    "position": 0,
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-01T09:00:00.000Z"
+  },
+  {
+    "id": "stg_010",
+    "journeyId": "jrn_003",
+    "kind": "issue_identification",
+    "title": "Issue Identification",
+    "position": 1,
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-01T09:00:00.000Z"
+  },
+  {
+    "id": "stg_011",
+    "journeyId": "jrn_003",
+    "kind": "technical_resolution",
+    "title": "Technical Resolution",
+    "position": 2,
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-01T09:00:00.000Z"
+  },
+  {
+    "id": "stg_012",
+    "journeyId": "jrn_003",
+    "kind": "new_tasks",
+    "title": "New Tasks",
+    "position": 3,
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-01T09:00:00.000Z"
+  },
+  {
+    "journeyId": "jrn_mqdlvgntdsmi9k",
+    "kind": "case_allocation",
+    "title": "Case Allocation",
+    "position": 0,
+    "id": "stg_mqdlvgnu9qqao3",
+    "createdAt": "2026-06-14T09:52:31.002Z",
+    "updatedAt": "2026-06-14T09:52:31.002Z"
+  },
+  {
+    "journeyId": "jrn_mqdlvgntdsmi9k",
+    "kind": "issue_identification",
+    "title": "Issue Identification",
+    "position": 1,
+    "id": "stg_mqdlvgnvy2yf29",
+    "createdAt": "2026-06-14T09:52:31.003Z",
+    "updatedAt": "2026-06-14T09:52:31.003Z"
+  },
+  {
+    "journeyId": "jrn_mqdlvgntdsmi9k",
+    "kind": "technical_resolution",
+    "title": "Technical Resolution",
+    "position": 2,
+    "id": "stg_mqdlvgnvjy02r1",
+    "createdAt": "2026-06-14T09:52:31.003Z",
+    "updatedAt": "2026-06-14T09:52:31.003Z"
+  },
+  {
+    "journeyId": "jrn_mqdlvgntdsmi9k",
+    "kind": "new_tasks",
+    "title": "New Tasks",
+    "position": 3,
+    "id": "stg_mqdlvgnvwartm5",
+    "createdAt": "2026-06-14T09:52:31.003Z",
+    "updatedAt": "2026-06-14T09:52:31.003Z"
+  },
+  {
+    "journeyId": "jrn_mqdmkhazhyvt0h",
+    "kind": "case_allocation",
+    "title": "Case Allocation",
+    "position": 0,
+    "id": "stg_mqdmkhazx0nza1",
+    "createdAt": "2026-06-14T10:11:58.235Z",
+    "updatedAt": "2026-06-14T10:11:58.235Z"
+  },
+  {
+    "journeyId": "jrn_mqdmkhazhyvt0h",
+    "kind": "issue_identification",
+    "title": "Issue Identification",
+    "position": 1,
+    "id": "stg_mqdmkhazrr1doy",
+    "createdAt": "2026-06-14T10:11:58.235Z",
+    "updatedAt": "2026-06-14T10:11:58.235Z"
+  },
+  {
+    "journeyId": "jrn_mqdmkhazhyvt0h",
+    "kind": "technical_resolution",
+    "title": "Technical Resolution",
+    "position": 2,
+    "id": "stg_mqdmkhaz3k5hz6",
+    "createdAt": "2026-06-14T10:11:58.235Z",
+    "updatedAt": "2026-06-14T10:11:58.235Z"
+  },
+  {
+    "journeyId": "jrn_mqdmkhazhyvt0h",
+    "kind": "new_tasks",
+    "title": "New Tasks",
+    "position": 3,
+    "id": "stg_mqdmkhaz3v0mnu",
+    "createdAt": "2026-06-14T10:11:58.235Z",
+    "updatedAt": "2026-06-14T10:11:58.235Z"
+  }
 ]

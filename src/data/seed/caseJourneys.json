@@ -23,7 +23,7 @@
     "priority": "medium",
     "summary": "POS reconciliation discrepancies during peak hours across 12 retail locations.",
     "createdAt": "2025-09-28T09:00:00.000Z",
-    "updatedAt": "2025-10-02T09:00:00.000Z"
+    "updatedAt": "2026-06-14T09:14:13.532Z"
   },
   {
     "id": "jrn_003",
@@ -36,6 +36,32 @@
     "priority": "critical",
     "summary": "Shift handover dashboard not loading after the v4.2 deployment.",
     "createdAt": "2025-10-01T09:00:00.000Z",
-    "updatedAt": "2025-10-05T09:00:00.000Z"
+    "updatedAt": "2026-06-14T05:52:04.763Z"
+  },
+  {
+    "title": "upgrade database cluster",
+    "reference": "JRN-104",
+    "companyId": "cmp_004",
+    "primaryContactId": "cnt_005",
+    "ownerId": "usr_004",
+    "priority": "high",
+    "summary": "I need it right now",
+    "status": "active",
+    "id": "jrn_mqdlvgntdsmi9k",
+    "createdAt": "2026-06-14T09:52:31.001Z",
+    "updatedAt": "2026-06-14T09:52:31.001Z"
+  },
+  {
+    "title": "Increases the leads",
+    "reference": "JRN-105",
+    "companyId": "cmp_mqdmh15k5p6v6q",
+    "primaryContactId": "cnt_mqdmirya1vq671",
+    "ownerId": "usr_003",
+    "priority": "high",
+    "summary": "The company in low on demand and need a boost in marketing.",
+    "status": "active",
+    "id": "jrn_mqdmkhazhyvt0h",
+    "createdAt": "2026-06-14T10:11:58.235Z",
+    "updatedAt": "2026-06-14T10:13:52.898Z"
   }
 ]

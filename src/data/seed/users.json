@@ -10,9 +10,9 @@
     "avatarColor": "#0F172A",
     "initials": "AR",
     "status": "active",
-    "lastLoginAt": null,
+    "lastLoginAt": "2026-06-14T10:15:21.165Z",
     "createdAt": "2024-01-12T09:00:00.000Z",
-    "updatedAt": "2024-01-12T09:00:00.000Z"
+    "updatedAt": "2026-06-14T10:15:21.165Z"
   },
   {
     "id": "usr_002",
@@ -40,9 +40,9 @@
     "avatarColor": "#0EA5A4",
     "initials": "MS",
     "status": "active",
-    "lastLoginAt": null,
+    "lastLoginAt": "2026-06-14T05:53:36.884Z",
     "createdAt": "2024-02-02T09:00:00.000Z",
-    "updatedAt": "2024-02-02T09:00:00.000Z"
+    "updatedAt": "2026-06-14T05:53:36.884Z"
   },
   {
     "id": "usr_004",
@@ -55,9 +55,9 @@
     "avatarColor": "#9333EA",
     "initials": "LB",
     "status": "active",
-    "lastLoginAt": null,
+    "lastLoginAt": "2026-06-14T09:26:41.059Z",
     "createdAt": "2024-02-10T09:00:00.000Z",
-    "updatedAt": "2024-02-10T09:00:00.000Z"
+    "updatedAt": "2026-06-14T09:26:41.059Z"
   },
   {
     "id": "usr_005",

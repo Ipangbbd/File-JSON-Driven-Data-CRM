@@ -1,5 +1,182 @@
 [
-  { "id": "act_001", "userId": "usr_002", "entity": "caseJourneys", "entityId": "jrn_001", "action": "create", "message": "Created case journey CASE-2025-0142 for Helios Logistics.", "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
-  { "id": "act_002", "userId": "usr_003", "entity": "tasks", "entityId": "tsk_001", "action": "complete", "message": "Completed Allocate Case to User.", "createdAt": "2025-09-30T11:00:00.000Z", "updatedAt": "2025-09-30T11:00:00.000Z" },
-  { "id": "act_003", "userId": "usr_005", "entity": "tasks", "entityId": "tsk_010", "action": "update", "message": "Set Estimate Resolution Time to in progress.", "createdAt": "2025-10-04T10:00:00.000Z", "updatedAt": "2025-10-04T10:00:00.000Z" }
+  {
+    "id": "act_001",
+    "userId": "usr_002",
+    "entity": "caseJourneys",
+    "entityId": "jrn_001",
+    "action": "create",
+    "message": "Created case journey CASE-2025-0142 for Helios Logistics.",
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "act_002",
+    "userId": "usr_003",
+    "entity": "tasks",
+    "entityId": "tsk_001",
+    "action": "complete",
+    "message": "Completed Allocate Case to User.",
+    "createdAt": "2025-09-30T11:00:00.000Z",
+    "updatedAt": "2025-09-30T11:00:00.000Z"
+  },
+  {
+    "id": "act_003",
+    "userId": "usr_005",
+    "entity": "tasks",
+    "entityId": "tsk_010",
+    "action": "update",
+    "message": "Set Estimate Resolution Time to in progress.",
+    "createdAt": "2025-10-04T10:00:00.000Z",
+    "updatedAt": "2025-10-04T10:00:00.000Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "login",
+    "message": "Alexandra Reyes signed in.",
+    "id": "act_mqdd9tlld8uajz",
+    "createdAt": "2026-06-14T05:51:44.409Z",
+    "updatedAt": "2026-06-14T05:51:44.409Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "tasks",
+    "entityId": "tsk_024",
+    "action": "complete",
+    "message": "Set \"Identify Issue Impact\" to completed.",
+    "id": "act_mqdda9az9u2tfs",
+    "createdAt": "2026-06-14T05:52:04.763Z",
+    "updatedAt": "2026-06-14T05:52:04.763Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "logout",
+    "message": "Alexandra Reyes signed out.",
+    "id": "act_mqddc382hm23gp",
+    "createdAt": "2026-06-14T05:53:30.194Z",
+    "updatedAt": "2026-06-14T05:53:30.194Z"
+  },
+  {
+    "userId": "usr_003",
+    "entity": "users",
+    "entityId": "usr_003",
+    "action": "login",
+    "message": "Mariko Sato signed in.",
+    "id": "act_mqddc8dw6y84lg",
+    "createdAt": "2026-06-14T05:53:36.884Z",
+    "updatedAt": "2026-06-14T05:53:36.884Z"
+  },
+  {
+    "userId": "usr_003",
+    "entity": "tasks",
+    "entityId": "tsk_020",
+    "action": "complete",
+    "message": "Set \"Identify Issue Category\" to completed.",
+    "id": "act_mqdki7x8g79gj3",
+    "createdAt": "2026-06-14T09:14:13.532Z",
+    "updatedAt": "2026-06-14T09:14:13.532Z"
+  },
+  {
+    "userId": "usr_003",
+    "entity": "users",
+    "entityId": "usr_003",
+    "action": "logout",
+    "message": "Mariko Sato signed out.",
+    "id": "act_mqdkxyg9qzsqxy",
+    "createdAt": "2026-06-14T09:26:27.753Z",
+    "updatedAt": "2026-06-14T09:26:27.753Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "login",
+    "message": "Alexandra Reyes signed in.",
+    "id": "act_mqdkxzkp3sun0h",
+    "createdAt": "2026-06-14T09:26:29.209Z",
+    "updatedAt": "2026-06-14T09:26:29.209Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "logout",
+    "message": "Alexandra Reyes signed out.",
+    "id": "act_mqdky4zqgibr05",
+    "createdAt": "2026-06-14T09:26:36.230Z",
+    "updatedAt": "2026-06-14T09:26:36.230Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "users",
+    "entityId": "usr_004",
+    "action": "login",
+    "message": "Lukas Brandt signed in.",
+    "id": "act_mqdky8pvunh562",
+    "createdAt": "2026-06-14T09:26:41.059Z",
+    "updatedAt": "2026-06-14T09:26:41.059Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "caseJourneys",
+    "entityId": "jrn_mqdlvgntdsmi9k",
+    "action": "create",
+    "message": "Created case journey JRN-104.",
+    "id": "act_mqdlvgnv7dkfkj",
+    "createdAt": "2026-06-14T09:52:31.003Z",
+    "updatedAt": "2026-06-14T09:52:31.003Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "caseJourneys",
+    "entityId": "jrn_mqdmkhazhyvt0h",
+    "action": "create",
+    "message": "Created case journey JRN-105.",
+    "id": "act_mqdmkhb0z72vxl",
+    "createdAt": "2026-06-14T10:11:58.236Z",
+    "updatedAt": "2026-06-14T10:11:58.236Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "tasks",
+    "entityId": "tsk_mqdmm1paa3gy79",
+    "action": "create",
+    "message": "Created task Create meta ads.",
+    "id": "act_mqdmm1pa5vzaj2",
+    "createdAt": "2026-06-14T10:13:11.326Z",
+    "updatedAt": "2026-06-14T10:13:11.326Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "tasks",
+    "entityId": "tsk_mqdmm1paa3gy79",
+    "action": "complete",
+    "message": "Set \"Create meta ads\" to completed.",
+    "id": "act_mqdmmxs26wt769",
+    "createdAt": "2026-06-14T10:13:52.898Z",
+    "updatedAt": "2026-06-14T10:13:52.898Z"
+  },
+  {
+    "userId": "usr_004",
+    "entity": "users",
+    "entityId": "usr_004",
+    "action": "logout",
+    "message": "Lukas Brandt signed out.",
+    "id": "act_mqdmos4mupnjgt",
+    "createdAt": "2026-06-14T10:15:18.886Z",
+    "updatedAt": "2026-06-14T10:15:18.886Z"
+  },
+  {
+    "userId": "usr_001",
+    "entity": "users",
+    "entityId": "usr_001",
+    "action": "login",
+    "message": "Alexandra Reyes signed in.",
+    "id": "act_mqdmotvxaqhnho",
+    "createdAt": "2026-06-14T10:15:21.165Z",
+    "updatedAt": "2026-06-14T10:15:21.165Z"
+  }
 ]

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { Calendar, Plus, Share2 } from "lucide-react";
 
 import { JourneyBoard } from "@/components/crm/JourneyBoard";
@@ -54,9 +54,11 @@ function DashboardPage() {
             <Button variant="outline" className="h-10 rounded-full px-4">
               <Share2 className="mr-1.5 h-4 w-4" /> Share view
             </Button>
-            <Button className="h-10 rounded-full px-4">
-              <Plus className="mr-1.5 h-4 w-4" /> New journey
-            </Button>
+            <Link to="/journeys/new">
+              <Button className="h-10 rounded-full px-4">
+                <Plus className="mr-1.5 h-4 w-4" /> New journey
+              </Button>
+            </Link>
           </>
         }
       />
@@ -75,7 +77,19 @@ function DashboardPage() {
         />
       </div>
 
-      {primary && <JourneyBoard journeyId={primary.journey.id} />}
+      {primary && (
+        <div className="space-y-2">
+          <div className="flex justify-between items-center px-2">
+            <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Primary Board</span>
+            <Link to={`/journeys/${primary.journey.id}`}>
+              <Button variant="ghost" size="sm" className="rounded-full text-xs">
+                Open Workspace →
+              </Button>
+            </Link>
+          </div>
+          <JourneyBoard journeyId={primary.journey.id} />
+        </div>
+      )}
 
       <div className="grid gap-4 lg:grid-cols-5">
         <section className="surface-card lg:col-span-3">
@@ -105,7 +119,11 @@ function DashboardPage() {
                 const owner = userById.get(item.assignedUserId);
                 return (
                   <tr key={item.id} className="border-t border-border">
-                    <td className="px-6 py-3 font-medium">{item.subject}</td>
+                    <td className="px-6 py-3 font-medium">
+                      <Link to={`/knowledge/${item.id}`} className="hover:underline text-foreground">
+                        {item.subject}
+                      </Link>
+                    </td>
                     <td className="px-6 py-3">
                       <span className="inline-flex items-center rounded-full bg-success/10 px-2.5 py-0.5 text-[11px] font-medium text-success capitalize">
                         {item.status}
@@ -168,10 +186,26 @@ function DashboardPage() {
               const company = companyById.get(journey.companyId);
               const owner = userById.get(journey.ownerId);
               return (
-                <tr key={journey.id} className="border-t border-border">
-                  <td className="px-6 py-3 font-mono text-xs text-muted-foreground">{journey.reference}</td>
-                  <td className="px-6 py-3 font-medium">{journey.title}</td>
-                  <td className="px-6 py-3 text-muted-foreground">{company?.name ?? "—"}</td>
+                <tr key={journey.id} className="border-t border-border hover:bg-muted/30">
+                  <td className="px-6 py-3 font-mono text-xs text-muted-foreground">
+                    <Link to={`/journeys/${journey.id}`} className="text-primary hover:underline font-semibold">
+                      {journey.reference}
+                    </Link>
+                  </td>
+                  <td className="px-6 py-3 font-medium">
+                    <Link to={`/journeys/${journey.id}`} className="hover:underline text-foreground">
+                      {journey.title}
+                    </Link>
+                  </td>
+                  <td className="px-6 py-3 text-muted-foreground">
+                    {company ? (
+                      <Link to={`/companies/${company.id}`} className="hover:underline text-muted-foreground">
+                        {company.name}
+                      </Link>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
                   <td className="px-6 py-3 text-muted-foreground">
                     {owner ? `${owner.firstName} ${owner.lastName}` : "—"}
                   </td>
@@ -226,7 +260,9 @@ function NextUpSection({ tasks }: { tasks: Task[] }) {
       <ul className="mt-4 divide-y divide-border">
         {upcoming.map((task) => (
           <li key={task.id} className="flex items-center justify-between py-3 text-sm">
-            <span className="font-medium">{task.title}</span>
+            <Link to={`/tasks/${task.id}`} className="font-medium hover:underline text-foreground">
+              {task.title}
+            </Link>
             <span className="text-xs text-muted-foreground">{formatDate(task.dueDate)}</span>
           </li>
         ))}

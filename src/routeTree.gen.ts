@@ -18,6 +18,16 @@ import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedKnowledgeRouteImport } from './routes/_authenticated.knowledge'
 import { Route as AuthenticatedContactsRouteImport } from './routes/_authenticated.contacts'
 import { Route as AuthenticatedCompaniesRouteImport } from './routes/_authenticated.companies'
+import { Route as AuthenticatedTasksNewRouteImport } from './routes/_authenticated.tasks.new'
+import { Route as AuthenticatedTasksIdRouteImport } from './routes/_authenticated.tasks.$id'
+import { Route as AuthenticatedKnowledgeNewRouteImport } from './routes/_authenticated.knowledge.new'
+import { Route as AuthenticatedKnowledgeIdRouteImport } from './routes/_authenticated.knowledge.$id'
+import { Route as AuthenticatedJourneysNewRouteImport } from './routes/_authenticated.journeys.new'
+import { Route as AuthenticatedJourneysIdRouteImport } from './routes/_authenticated.journeys.$id'
+import { Route as AuthenticatedContactsNewRouteImport } from './routes/_authenticated.contacts.new'
+import { Route as AuthenticatedContactsIdRouteImport } from './routes/_authenticated.contacts.$id'
+import { Route as AuthenticatedCompaniesNewRouteImport } from './routes/_authenticated.companies.new'
+import { Route as AuthenticatedCompaniesIdRouteImport } from './routes/_authenticated.companies.$id'
 import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authenticated.admin.users'
 
 const LoginRoute = LoginRouteImport.update({
@@ -64,6 +74,62 @@ const AuthenticatedCompaniesRoute = AuthenticatedCompaniesRouteImport.update({
   path: '/companies',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedTasksNewRoute = AuthenticatedTasksNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => AuthenticatedTasksRoute,
+} as any)
+const AuthenticatedTasksIdRoute = AuthenticatedTasksIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AuthenticatedTasksRoute,
+} as any)
+const AuthenticatedKnowledgeNewRoute =
+  AuthenticatedKnowledgeNewRouteImport.update({
+    id: '/new',
+    path: '/new',
+    getParentRoute: () => AuthenticatedKnowledgeRoute,
+  } as any)
+const AuthenticatedKnowledgeIdRoute =
+  AuthenticatedKnowledgeIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedKnowledgeRoute,
+  } as any)
+const AuthenticatedJourneysNewRoute =
+  AuthenticatedJourneysNewRouteImport.update({
+    id: '/journeys/new',
+    path: '/journeys/new',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedJourneysIdRoute = AuthenticatedJourneysIdRouteImport.update({
+  id: '/journeys/$id',
+  path: '/journeys/$id',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedContactsNewRoute =
+  AuthenticatedContactsNewRouteImport.update({
+    id: '/new',
+    path: '/new',
+    getParentRoute: () => AuthenticatedContactsRoute,
+  } as any)
+const AuthenticatedContactsIdRoute = AuthenticatedContactsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AuthenticatedContactsRoute,
+} as any)
+const AuthenticatedCompaniesNewRoute =
+  AuthenticatedCompaniesNewRouteImport.update({
+    id: '/new',
+    path: '/new',
+    getParentRoute: () => AuthenticatedCompaniesRoute,
+  } as any)
+const AuthenticatedCompaniesIdRoute =
+  AuthenticatedCompaniesIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedCompaniesRoute,
+  } as any)
 const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
   id: '/admin/users',
   path: '/admin/users',
@@ -73,37 +139,67 @@ const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof LoginRoute
-  '/companies': typeof AuthenticatedCompaniesRoute
-  '/contacts': typeof AuthenticatedContactsRoute
-  '/knowledge': typeof AuthenticatedKnowledgeRoute
+  '/companies': typeof AuthenticatedCompaniesRouteWithChildren
+  '/contacts': typeof AuthenticatedContactsRouteWithChildren
+  '/knowledge': typeof AuthenticatedKnowledgeRouteWithChildren
   '/profile': typeof AuthenticatedProfileRoute
   '/settings': typeof AuthenticatedSettingsRoute
-  '/tasks': typeof AuthenticatedTasksRoute
+  '/tasks': typeof AuthenticatedTasksRouteWithChildren
   '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/companies/$id': typeof AuthenticatedCompaniesIdRoute
+  '/companies/new': typeof AuthenticatedCompaniesNewRoute
+  '/contacts/$id': typeof AuthenticatedContactsIdRoute
+  '/contacts/new': typeof AuthenticatedContactsNewRoute
+  '/journeys/$id': typeof AuthenticatedJourneysIdRoute
+  '/journeys/new': typeof AuthenticatedJourneysNewRoute
+  '/knowledge/$id': typeof AuthenticatedKnowledgeIdRoute
+  '/knowledge/new': typeof AuthenticatedKnowledgeNewRoute
+  '/tasks/$id': typeof AuthenticatedTasksIdRoute
+  '/tasks/new': typeof AuthenticatedTasksNewRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
-  '/companies': typeof AuthenticatedCompaniesRoute
-  '/contacts': typeof AuthenticatedContactsRoute
-  '/knowledge': typeof AuthenticatedKnowledgeRoute
+  '/companies': typeof AuthenticatedCompaniesRouteWithChildren
+  '/contacts': typeof AuthenticatedContactsRouteWithChildren
+  '/knowledge': typeof AuthenticatedKnowledgeRouteWithChildren
   '/profile': typeof AuthenticatedProfileRoute
   '/settings': typeof AuthenticatedSettingsRoute
-  '/tasks': typeof AuthenticatedTasksRoute
+  '/tasks': typeof AuthenticatedTasksRouteWithChildren
   '/': typeof AuthenticatedIndexRoute
   '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/companies/$id': typeof AuthenticatedCompaniesIdRoute
+  '/companies/new': typeof AuthenticatedCompaniesNewRoute
+  '/contacts/$id': typeof AuthenticatedContactsIdRoute
+  '/contacts/new': typeof AuthenticatedContactsNewRoute
+  '/journeys/$id': typeof AuthenticatedJourneysIdRoute
+  '/journeys/new': typeof AuthenticatedJourneysNewRoute
+  '/knowledge/$id': typeof AuthenticatedKnowledgeIdRoute
+  '/knowledge/new': typeof AuthenticatedKnowledgeNewRoute
+  '/tasks/$id': typeof AuthenticatedTasksIdRoute
+  '/tasks/new': typeof AuthenticatedTasksNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/login': typeof LoginRoute
-  '/_authenticated/companies': typeof AuthenticatedCompaniesRoute
-  '/_authenticated/contacts': typeof AuthenticatedContactsRoute
-  '/_authenticated/knowledge': typeof AuthenticatedKnowledgeRoute
+  '/_authenticated/companies': typeof AuthenticatedCompaniesRouteWithChildren
+  '/_authenticated/contacts': typeof AuthenticatedContactsRouteWithChildren
+  '/_authenticated/knowledge': typeof AuthenticatedKnowledgeRouteWithChildren
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
-  '/_authenticated/tasks': typeof AuthenticatedTasksRoute
+  '/_authenticated/tasks': typeof AuthenticatedTasksRouteWithChildren
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/_authenticated/companies/$id': typeof AuthenticatedCompaniesIdRoute
+  '/_authenticated/companies/new': typeof AuthenticatedCompaniesNewRoute
+  '/_authenticated/contacts/$id': typeof AuthenticatedContactsIdRoute
+  '/_authenticated/contacts/new': typeof AuthenticatedContactsNewRoute
+  '/_authenticated/journeys/$id': typeof AuthenticatedJourneysIdRoute
+  '/_authenticated/journeys/new': typeof AuthenticatedJourneysNewRoute
+  '/_authenticated/knowledge/$id': typeof AuthenticatedKnowledgeIdRoute
+  '/_authenticated/knowledge/new': typeof AuthenticatedKnowledgeNewRoute
+  '/_authenticated/tasks/$id': typeof AuthenticatedTasksIdRoute
+  '/_authenticated/tasks/new': typeof AuthenticatedTasksNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -117,6 +213,16 @@ export interface FileRouteTypes {
     | '/settings'
     | '/tasks'
     | '/admin/users'
+    | '/companies/$id'
+    | '/companies/new'
+    | '/contacts/$id'
+    | '/contacts/new'
+    | '/journeys/$id'
+    | '/journeys/new'
+    | '/knowledge/$id'
+    | '/knowledge/new'
+    | '/tasks/$id'
+    | '/tasks/new'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
@@ -128,6 +234,16 @@ export interface FileRouteTypes {
     | '/tasks'
     | '/'
     | '/admin/users'
+    | '/companies/$id'
+    | '/companies/new'
+    | '/contacts/$id'
+    | '/contacts/new'
+    | '/journeys/$id'
+    | '/journeys/new'
+    | '/knowledge/$id'
+    | '/knowledge/new'
+    | '/tasks/$id'
+    | '/tasks/new'
   id:
     | '__root__'
     | '/_authenticated'
@@ -140,6 +256,16 @@ export interface FileRouteTypes {
     | '/_authenticated/tasks'
     | '/_authenticated/'
     | '/_authenticated/admin/users'
+    | '/_authenticated/companies/$id'
+    | '/_authenticated/companies/new'
+    | '/_authenticated/contacts/$id'
+    | '/_authenticated/contacts/new'
+    | '/_authenticated/journeys/$id'
+    | '/_authenticated/journeys/new'
+    | '/_authenticated/knowledge/$id'
+    | '/_authenticated/knowledge/new'
+    | '/_authenticated/tasks/$id'
+    | '/_authenticated/tasks/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -212,6 +338,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCompaniesRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/tasks/new': {
+      id: '/_authenticated/tasks/new'
+      path: '/new'
+      fullPath: '/tasks/new'
+      preLoaderRoute: typeof AuthenticatedTasksNewRouteImport
+      parentRoute: typeof AuthenticatedTasksRoute
+    }
+    '/_authenticated/tasks/$id': {
+      id: '/_authenticated/tasks/$id'
+      path: '/$id'
+      fullPath: '/tasks/$id'
+      preLoaderRoute: typeof AuthenticatedTasksIdRouteImport
+      parentRoute: typeof AuthenticatedTasksRoute
+    }
+    '/_authenticated/knowledge/new': {
+      id: '/_authenticated/knowledge/new'
+      path: '/new'
+      fullPath: '/knowledge/new'
+      preLoaderRoute: typeof AuthenticatedKnowledgeNewRouteImport
+      parentRoute: typeof AuthenticatedKnowledgeRoute
+    }
+    '/_authenticated/knowledge/$id': {
+      id: '/_authenticated/knowledge/$id'
+      path: '/$id'
+      fullPath: '/knowledge/$id'
+      preLoaderRoute: typeof AuthenticatedKnowledgeIdRouteImport
+      parentRoute: typeof AuthenticatedKnowledgeRoute
+    }
+    '/_authenticated/journeys/new': {
+      id: '/_authenticated/journeys/new'
+      path: '/journeys/new'
+      fullPath: '/journeys/new'
+      preLoaderRoute: typeof AuthenticatedJourneysNewRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/journeys/$id': {
+      id: '/_authenticated/journeys/$id'
+      path: '/journeys/$id'
+      fullPath: '/journeys/$id'
+      preLoaderRoute: typeof AuthenticatedJourneysIdRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/contacts/new': {
+      id: '/_authenticated/contacts/new'
+      path: '/new'
+      fullPath: '/contacts/new'
+      preLoaderRoute: typeof AuthenticatedContactsNewRouteImport
+      parentRoute: typeof AuthenticatedContactsRoute
+    }
+    '/_authenticated/contacts/$id': {
+      id: '/_authenticated/contacts/$id'
+      path: '/$id'
+      fullPath: '/contacts/$id'
+      preLoaderRoute: typeof AuthenticatedContactsIdRouteImport
+      parentRoute: typeof AuthenticatedContactsRoute
+    }
+    '/_authenticated/companies/new': {
+      id: '/_authenticated/companies/new'
+      path: '/new'
+      fullPath: '/companies/new'
+      preLoaderRoute: typeof AuthenticatedCompaniesNewRouteImport
+      parentRoute: typeof AuthenticatedCompaniesRoute
+    }
+    '/_authenticated/companies/$id': {
+      id: '/_authenticated/companies/$id'
+      path: '/$id'
+      fullPath: '/companies/$id'
+      preLoaderRoute: typeof AuthenticatedCompaniesIdRouteImport
+      parentRoute: typeof AuthenticatedCompaniesRoute
+    }
     '/_authenticated/admin/users': {
       id: '/_authenticated/admin/users'
       path: '/admin/users'
@@ -222,26 +418,90 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedCompaniesRouteChildren {
+  AuthenticatedCompaniesIdRoute: typeof AuthenticatedCompaniesIdRoute
+  AuthenticatedCompaniesNewRoute: typeof AuthenticatedCompaniesNewRoute
+}
+
+const AuthenticatedCompaniesRouteChildren: AuthenticatedCompaniesRouteChildren =
+  {
+    AuthenticatedCompaniesIdRoute: AuthenticatedCompaniesIdRoute,
+    AuthenticatedCompaniesNewRoute: AuthenticatedCompaniesNewRoute,
+  }
+
+const AuthenticatedCompaniesRouteWithChildren =
+  AuthenticatedCompaniesRoute._addFileChildren(
+    AuthenticatedCompaniesRouteChildren,
+  )
+
+interface AuthenticatedContactsRouteChildren {
+  AuthenticatedContactsIdRoute: typeof AuthenticatedContactsIdRoute
+  AuthenticatedContactsNewRoute: typeof AuthenticatedContactsNewRoute
+}
+
+const AuthenticatedContactsRouteChildren: AuthenticatedContactsRouteChildren = {
+  AuthenticatedContactsIdRoute: AuthenticatedContactsIdRoute,
+  AuthenticatedContactsNewRoute: AuthenticatedContactsNewRoute,
+}
+
+const AuthenticatedContactsRouteWithChildren =
+  AuthenticatedContactsRoute._addFileChildren(
+    AuthenticatedContactsRouteChildren,
+  )
+
+interface AuthenticatedKnowledgeRouteChildren {
+  AuthenticatedKnowledgeIdRoute: typeof AuthenticatedKnowledgeIdRoute
+  AuthenticatedKnowledgeNewRoute: typeof AuthenticatedKnowledgeNewRoute
+}
+
+const AuthenticatedKnowledgeRouteChildren: AuthenticatedKnowledgeRouteChildren =
+  {
+    AuthenticatedKnowledgeIdRoute: AuthenticatedKnowledgeIdRoute,
+    AuthenticatedKnowledgeNewRoute: AuthenticatedKnowledgeNewRoute,
+  }
+
+const AuthenticatedKnowledgeRouteWithChildren =
+  AuthenticatedKnowledgeRoute._addFileChildren(
+    AuthenticatedKnowledgeRouteChildren,
+  )
+
+interface AuthenticatedTasksRouteChildren {
+  AuthenticatedTasksIdRoute: typeof AuthenticatedTasksIdRoute
+  AuthenticatedTasksNewRoute: typeof AuthenticatedTasksNewRoute
+}
+
+const AuthenticatedTasksRouteChildren: AuthenticatedTasksRouteChildren = {
+  AuthenticatedTasksIdRoute: AuthenticatedTasksIdRoute,
+  AuthenticatedTasksNewRoute: AuthenticatedTasksNewRoute,
+}
+
+const AuthenticatedTasksRouteWithChildren =
+  AuthenticatedTasksRoute._addFileChildren(AuthenticatedTasksRouteChildren)
+
 interface AuthenticatedRouteChildren {
-  AuthenticatedCompaniesRoute: typeof AuthenticatedCompaniesRoute
-  AuthenticatedContactsRoute: typeof AuthenticatedContactsRoute
-  AuthenticatedKnowledgeRoute: typeof AuthenticatedKnowledgeRoute
+  AuthenticatedCompaniesRoute: typeof AuthenticatedCompaniesRouteWithChildren
+  AuthenticatedContactsRoute: typeof AuthenticatedContactsRouteWithChildren
+  AuthenticatedKnowledgeRoute: typeof AuthenticatedKnowledgeRouteWithChildren
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
-  AuthenticatedTasksRoute: typeof AuthenticatedTasksRoute
+  AuthenticatedTasksRoute: typeof AuthenticatedTasksRouteWithChildren
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedAdminUsersRoute: typeof AuthenticatedAdminUsersRoute
+  AuthenticatedJourneysIdRoute: typeof AuthenticatedJourneysIdRoute
+  AuthenticatedJourneysNewRoute: typeof AuthenticatedJourneysNewRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
-  AuthenticatedCompaniesRoute: AuthenticatedCompaniesRoute,
-  AuthenticatedContactsRoute: AuthenticatedContactsRoute,
-  AuthenticatedKnowledgeRoute: AuthenticatedKnowledgeRoute,
+  AuthenticatedCompaniesRoute: AuthenticatedCompaniesRouteWithChildren,
+  AuthenticatedContactsRoute: AuthenticatedContactsRouteWithChildren,
+  AuthenticatedKnowledgeRoute: AuthenticatedKnowledgeRouteWithChildren,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
-  AuthenticatedTasksRoute: AuthenticatedTasksRoute,
+  AuthenticatedTasksRoute: AuthenticatedTasksRouteWithChildren,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedAdminUsersRoute: AuthenticatedAdminUsersRoute,
+  AuthenticatedJourneysIdRoute: AuthenticatedJourneysIdRoute,
+  AuthenticatedJourneysNewRoute: AuthenticatedJourneysNewRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(

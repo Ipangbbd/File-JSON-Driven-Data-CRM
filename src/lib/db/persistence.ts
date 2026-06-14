@@ -78,6 +78,16 @@ class PersistenceEngine {
     this.cache[collection] = value as unknown[];
     if (typeof window !== "undefined") {
       window.localStorage.setItem(this.storageKey(collection), JSON.stringify(value));
+      // Asynchronously sync local localStorage changes with seed JSON files on disk
+      import("@/lib/api/persistence.functions")
+        .then(({ saveCollection }) => {
+          saveCollection({ data: { collection, data: value } }).catch((err) => {
+            console.error(`Failed to save ${collection} to disk:`, err);
+          });
+        })
+        .catch((err) => {
+          console.error("Failed to import persistence functions:", err);
+        });
     }
     this.notify(collection);
   }

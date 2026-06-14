@@ -232,8 +232,10 @@ function TopBar({
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button className="hidden h-10 rounded-full px-4 md:inline-flex">
-            <Plus className="mr-1.5 h-4 w-4" /> New case
+          <Button asChild className="hidden h-10 rounded-full px-4 md:inline-flex">
+            <Link to="/journeys/new">
+              <Plus className="mr-1.5 h-4 w-4" /> New case
+            </Link>
           </Button>
         </div>
       </div>

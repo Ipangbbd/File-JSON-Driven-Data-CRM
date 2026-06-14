@@ -58,5 +58,17 @@
     "avatarColor": "#F97316",
     "createdAt": "2024-04-13T10:00:00.000Z",
     "updatedAt": "2024-04-13T10:00:00.000Z"
+  },
+  {
+    "companyId": "cmp_mqdmh15k5p6v6q",
+    "firstName": "Jane",
+    "lastName": "Eleanora",
+    "email": "jane.eleanora@gmail.com",
+    "phone": "+6285890081550",
+    "role": "Lead Marketing",
+    "avatarColor": "fuchsia",
+    "id": "cnt_mqdmirya1vq671",
+    "createdAt": "2026-06-14T10:10:38.722Z",
+    "updatedAt": "2026-06-14T10:10:38.722Z"
   }
 ]
