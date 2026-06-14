@@ -1,0 +1,6 @@
+[
+  { "id": "knw_001", "subject": "Design Sprint — Telemetry pipeline", "status": "executed", "startDate": "2025-09-30T01:12:00.000Z", "endDate": "2025-10-01T01:11:00.000Z", "assignedUserId": "usr_002", "tags": ["telemetry", "design-sprint"], "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-10-01T09:00:00.000Z" },
+  { "id": "knw_002", "subject": "POS Reconciliation Runbook", "status": "executed", "startDate": "2025-09-25T09:00:00.000Z", "endDate": "2025-09-28T09:00:00.000Z", "assignedUserId": "usr_003", "tags": ["pos", "runbook"], "createdAt": "2025-09-25T09:00:00.000Z", "updatedAt": "2025-09-28T09:00:00.000Z" },
+  { "id": "knw_003", "subject": "Atlas v4.2 Rollback Procedure", "status": "draft", "startDate": "2025-10-01T09:00:00.000Z", "endDate": "2025-10-06T09:00:00.000Z", "assignedUserId": "usr_005", "tags": ["release", "rollback"], "createdAt": "2025-10-01T09:00:00.000Z", "updatedAt": "2025-10-05T09:00:00.000Z" },
+  { "id": "knw_004", "subject": "Customer Notification Templates Q4", "status": "executed", "startDate": "2025-09-15T09:00:00.000Z", "endDate": "2025-09-20T09:00:00.000Z", "assignedUserId": "usr_006", "tags": ["templates", "comms"], "createdAt": "2025-09-15T09:00:00.000Z", "updatedAt": "2025-09-20T09:00:00.000Z" }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "cmp_001",
+    "name": "Helios Logistics",
+    "industry": "Logistics",
+    "size": "enterprise",
+    "website": "helios-logistics.com",
+    "tier": "strategic",
+    "ownerId": "usr_002",
+    "createdAt": "2024-03-04T10:00:00.000Z",
+    "updatedAt": "2024-03-04T10:00:00.000Z"
+  },
+  {
+    "id": "cmp_002",
+    "name": "Northwind Apparel",
+    "industry": "Retail",
+    "size": "mid",
+    "website": "northwindapparel.com",
+    "tier": "priority",
+    "ownerId": "usr_003",
+    "createdAt": "2024-03-10T10:00:00.000Z",
+    "updatedAt": "2024-03-10T10:00:00.000Z"
+  },
+  {
+    "id": "cmp_003",
+    "name": "Atlas Manufacturing",
+    "industry": "Manufacturing",
+    "size": "enterprise",
+    "website": "atlas-mfg.com",
+    "tier": "strategic",
+    "ownerId": "usr_002",
+    "createdAt": "2024-04-01T10:00:00.000Z",
+    "updatedAt": "2024-04-01T10:00:00.000Z"
+  },
+  {
+    "id": "cmp_004",
+    "name": "Brightline Health",
+    "industry": "Healthcare",
+    "size": "mid",
+    "website": "brightline-health.com",
+    "tier": "priority",
+    "ownerId": "usr_006",
+    "createdAt": "2024-04-12T10:00:00.000Z",
+    "updatedAt": "2024-04-12T10:00:00.000Z"
+  }
+]

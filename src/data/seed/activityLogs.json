@@ -1,0 +1,5 @@
+[
+  { "id": "act_001", "userId": "usr_002", "entity": "caseJourneys", "entityId": "jrn_001", "action": "create", "message": "Created case journey CASE-2025-0142 for Helios Logistics.", "createdAt": "2025-09-30T09:00:00.000Z", "updatedAt": "2025-09-30T09:00:00.000Z" },
+  { "id": "act_002", "userId": "usr_003", "entity": "tasks", "entityId": "tsk_001", "action": "complete", "message": "Completed Allocate Case to User.", "createdAt": "2025-09-30T11:00:00.000Z", "updatedAt": "2025-09-30T11:00:00.000Z" },
+  { "id": "act_003", "userId": "usr_005", "entity": "tasks", "entityId": "tsk_010", "action": "update", "message": "Set Estimate Resolution Time to in progress.", "createdAt": "2025-10-04T10:00:00.000Z", "updatedAt": "2025-10-04T10:00:00.000Z" }
+]

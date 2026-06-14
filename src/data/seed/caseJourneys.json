@@ -1,0 +1,41 @@
+[
+  {
+    "id": "jrn_001",
+    "title": "New Case Management",
+    "reference": "CASE-2025-0142",
+    "companyId": "cmp_001",
+    "primaryContactId": "cnt_001",
+    "ownerId": "usr_002",
+    "status": "active",
+    "priority": "high",
+    "summary": "Fleet telemetry intermittently fails to sync overnight; impacting morning dispatch reports.",
+    "createdAt": "2025-09-30T09:00:00.000Z",
+    "updatedAt": "2025-10-04T09:00:00.000Z"
+  },
+  {
+    "id": "jrn_002",
+    "title": "Support Ticket Journey",
+    "reference": "CASE-2025-0151",
+    "companyId": "cmp_002",
+    "primaryContactId": "cnt_003",
+    "ownerId": "usr_003",
+    "status": "active",
+    "priority": "medium",
+    "summary": "POS reconciliation discrepancies during peak hours across 12 retail locations.",
+    "createdAt": "2025-09-28T09:00:00.000Z",
+    "updatedAt": "2025-10-02T09:00:00.000Z"
+  },
+  {
+    "id": "jrn_003",
+    "title": "Plant Outage Recovery",
+    "reference": "CASE-2025-0160",
+    "companyId": "cmp_003",
+    "primaryContactId": "cnt_004",
+    "ownerId": "usr_005",
+    "status": "blocked",
+    "priority": "critical",
+    "summary": "Shift handover dashboard not loading after the v4.2 deployment.",
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-05T09:00:00.000Z"
+  }
+]

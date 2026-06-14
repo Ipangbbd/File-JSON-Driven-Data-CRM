@@ -1,0 +1,62 @@
+[
+  {
+    "id": "cnt_001",
+    "companyId": "cmp_001",
+    "firstName": "Priya",
+    "lastName": "Anand",
+    "email": "priya.anand@helios-logistics.com",
+    "phone": "+1 415 555 0102",
+    "role": "VP of Operations",
+    "avatarColor": "#0F766E",
+    "createdAt": "2024-03-05T10:00:00.000Z",
+    "updatedAt": "2024-03-05T10:00:00.000Z"
+  },
+  {
+    "id": "cnt_002",
+    "companyId": "cmp_001",
+    "firstName": "Mateus",
+    "lastName": "Silva",
+    "email": "mateus.silva@helios-logistics.com",
+    "phone": "+1 415 555 0188",
+    "role": "Fleet Systems Lead",
+    "avatarColor": "#1D4ED8",
+    "createdAt": "2024-03-05T10:00:00.000Z",
+    "updatedAt": "2024-03-05T10:00:00.000Z"
+  },
+  {
+    "id": "cnt_003",
+    "companyId": "cmp_002",
+    "firstName": "Emma",
+    "lastName": "Larsen",
+    "email": "emma.larsen@northwindapparel.com",
+    "phone": "+1 212 555 0134",
+    "role": "Director of Retail Tech",
+    "avatarColor": "#DB2777",
+    "createdAt": "2024-03-11T10:00:00.000Z",
+    "updatedAt": "2024-03-11T10:00:00.000Z"
+  },
+  {
+    "id": "cnt_004",
+    "companyId": "cmp_003",
+    "firstName": "Hiroshi",
+    "lastName": "Tanaka",
+    "email": "h.tanaka@atlas-mfg.com",
+    "phone": "+81 3 5555 0177",
+    "role": "Plant Systems Manager",
+    "avatarColor": "#9333EA",
+    "createdAt": "2024-04-02T10:00:00.000Z",
+    "updatedAt": "2024-04-02T10:00:00.000Z"
+  },
+  {
+    "id": "cnt_005",
+    "companyId": "cmp_004",
+    "firstName": "Sofia",
+    "lastName": "Marín",
+    "email": "sofia.marin@brightline-health.com",
+    "phone": "+34 91 555 0163",
+    "role": "Chief Information Officer",
+    "avatarColor": "#F97316",
+    "createdAt": "2024-04-13T10:00:00.000Z",
+    "updatedAt": "2024-04-13T10:00:00.000Z"
+  }
+]

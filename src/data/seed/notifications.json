@@ -1,0 +1,5 @@
+[
+  { "id": "ntf_001", "userId": "usr_002", "title": "New case allocated", "body": "Helios Logistics — CASE-2025-0142 requires sign-off.", "readAt": null, "link": "/journeys", "severity": "info", "createdAt": "2025-10-04T09:00:00.000Z", "updatedAt": "2025-10-04T09:00:00.000Z" },
+  { "id": "ntf_002", "userId": "usr_003", "title": "Task overdue", "body": "Identify Issue Category for Northwind Apparel is past its due date.", "readAt": null, "link": "/tasks", "severity": "warning", "createdAt": "2025-10-02T09:00:00.000Z", "updatedAt": "2025-10-02T09:00:00.000Z" },
+  { "id": "ntf_003", "userId": "usr_001", "title": "Knowledge article published", "body": "Atlas v4.2 Rollback Procedure has moved out of draft.", "readAt": null, "link": "/knowledge", "severity": "success", "createdAt": "2025-10-05T09:00:00.000Z", "updatedAt": "2025-10-05T09:00:00.000Z" }
+]
