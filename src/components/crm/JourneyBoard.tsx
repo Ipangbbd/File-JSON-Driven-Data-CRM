@@ -119,7 +119,8 @@ function StageColumn({
       <div className={cn(
         "surface-panel flex flex-col gap-3 bg-gradient-to-b p-3",
         tone,
-        darkTone,
+        // Use a solid surface fill in dark mode for a cleaner, less 'AI-pastel' look
+        "dark:bg-surface/80 dark:from-transparent dark:to-transparent",
       )}>
         {children}
       </div>

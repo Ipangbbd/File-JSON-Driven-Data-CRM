@@ -16,7 +16,7 @@ import {
 import { useStore } from "@/lib/providers/DataProvider";
 import { companiesService } from "@/lib/services/companies.service";
 import { contactsService } from "@/lib/services/contacts.service";
-import { saveImage } from "@/lib/api/image.functions";
+import { saveImage, deleteImage } from "@/lib/api/image.functions";
 import { readFileAsBase64 } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 
@@ -129,11 +129,13 @@ function ContactDetailPage() {
               fileName: `${contact.id}-${Date.now()}`,
               mimeType: imageFile.type,
               base64Data: await readFileAsBase64(imageFile),
+              // tell server to remove the old image file when replacing
+              previousPath: contact.avatarImage,
             },
           })).path
         : contact.avatarImage;
 
-      contactsService.update(contact.id, {
+      const updated = contactsService.update(contact.id, {
         firstName,
         lastName,
         email,
@@ -143,10 +145,32 @@ function ContactDetailPage() {
         avatarColor,
         avatarImage,
       });
+      console.debug("saveImage returned path:", avatarImage);
+      console.debug("contact updated:", updated);
+      // Clear chosen file and update preview to the saved path so the UI shows the new image
+      setImageFile(null);
+      setImagePreview(avatarImage ?? contact.avatarImage ?? null);
       setStatusMessage("Contact updated successfully.");
       setIsEditing(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to update contact.");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const handleRemoveImage = async () => {
+    if (!contact.avatarImage) return;
+    if (!confirm("Remove this profile image? This will delete the file.")) return;
+    try {
+      setIsSaving(true);
+      await deleteImage({ data: { path: contact.avatarImage } });
+      contactsService.update(contact.id, { avatarImage: undefined });
+      setImageFile(null);
+      setImagePreview(null);
+      setStatusMessage("Image removed.");
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Unable to remove image.");
     } finally {
       setIsSaving(false);
     }
@@ -224,6 +248,13 @@ function ContactDetailPage() {
             imageSrc={imagePreview ?? contact.avatarImage}
             size="lg"
           />
+          {isEditing && (contact.avatarImage || imagePreview) && (
+            <div className="pt-2">
+              <Button variant="destructive" size="sm" className="rounded-full" onClick={handleRemoveImage} disabled={isSaving}>
+                <Trash2 className="mr-1 h-4 w-4" /> Remove image
+              </Button>
+            </div>
+          )}
           <div>
             <h3 className="text-lg font-semibold">{contact.firstName} {contact.lastName}</h3>
             <p className="text-sm text-muted-foreground">{contact.role}</p>

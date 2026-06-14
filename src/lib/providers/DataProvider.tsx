@@ -12,6 +12,7 @@ interface DataContextValue {
   ready: boolean;
   version: number;
   reset: () => void;
+  clearAllData: () => void;
 }
 
 const DataContext = createContext<DataContextValue | null>(null);
@@ -33,6 +34,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
       version,
       reset: () => {
         persistence.resetToSeed();
+        setVersion((v) => v + 1);
+      },
+      clearAllData: () => {
+        persistence.clearAllData();
         setVersion((v) => v + 1);
       },
     }),

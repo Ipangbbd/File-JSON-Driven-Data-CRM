@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface AvatarProps {
   initials: string;
@@ -17,23 +18,21 @@ const SIZE_CLASS: Record<NonNullable<AvatarProps["size"]>, string> = {
 };
 
 export function UserAvatar({ initials, color, imageSrc, size = "md", className, title }: AvatarProps) {
+  const [failed, setFailed] = useState(false);
   const baseClasses = cn(
     "inline-flex overflow-hidden rounded-full font-medium text-white ring-2 ring-surface",
     SIZE_CLASS[size],
     className,
   );
 
-  if (imageSrc) {
+  if (imageSrc && !failed) {
     return (
       <span title={title} className={baseClasses} style={{ backgroundColor: color }}>
         <img
           src={imageSrc}
           alt={title ?? initials}
           className="h-full w-full object-cover"
-          onError={(e) => {
-            const target = e.currentTarget as HTMLImageElement;
-            target.style.display = "none";
-          }}
+          onError={() => setFailed(true)}
         />
       </span>
     );

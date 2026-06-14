@@ -104,6 +104,25 @@ class PersistenceEngine {
     (Object.keys(SEEDS) as CollectionName[]).forEach((c) => this.notify(c));
   }
 
+  clearAllData(): void {
+    if (typeof window === "undefined") return;
+    const preserve: CollectionName[] = ["users", "sessions"];
+
+    (Object.keys(SEEDS) as CollectionName[]).forEach((collection) => {
+      const key = this.storageKey(collection);
+      if (preserve.includes(collection)) {
+        this.cache[collection] = persistence.read(collection) as unknown[];
+        return;
+      }
+      window.localStorage.removeItem(key);
+      this.cache[collection] = [];
+      window.localStorage.setItem(key, JSON.stringify([]));
+    });
+    window.localStorage.setItem(SCHEMA_VERSION_KEY, String(SCHEMA_VERSION));
+    this.hydrated = true;
+    (Object.keys(SEEDS) as CollectionName[]).forEach((c) => this.notify(c));
+  }
+
   subscribe(listener: ChangeListener): () => void {
     this.listeners.add(listener);
     return () => this.listeners.delete(listener);

@@ -109,7 +109,7 @@ function NewContactPage() {
           })).path
         : undefined;
 
-      contactsService.create({
+      const created = contactsService.create({
         companyId,
         firstName,
         lastName,
@@ -119,6 +119,8 @@ function NewContactPage() {
         avatarColor,
         avatarImage,
       });
+      console.debug("new contact avatarImage:", avatarImage);
+      console.debug("created contact:", created);
       // Navigate back to company detail or contacts list
       if (defaultCompanyId) {
         navigate({ to: `/companies/${defaultCompanyId}` });

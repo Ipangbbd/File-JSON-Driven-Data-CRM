@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated/settings")({
 
 function SettingsPage() {
   const { can } = useAuth();
-  const { reset } = useDataContext();
+  const { reset, clearAllData } = useDataContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function SettingsPage() {
         <p className="mt-1 text-sm text-muted-foreground">
           Resetting restores the JSON seed data and clears any local mutations from this browser.
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-col gap-3">
           <Button
             variant="outline"
             className="rounded-full"
@@ -42,6 +42,17 @@ function SettingsPage() {
             }}
           >
             Reset workspace to seed
+          </Button>
+          <Button
+            variant="destructive"
+            className="rounded-full"
+            onClick={() => {
+              if (confirm("Remove all local data except users and roles? This cannot be undone.")) {
+                clearAllData();
+              }
+            }}
+          >
+            Remove all local data (preserve users)
           </Button>
         </div>
       </section>

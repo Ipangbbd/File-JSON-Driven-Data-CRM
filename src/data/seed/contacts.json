@@ -7,9 +7,9 @@
     "email": "priya.anand@helios-logistics.com",
     "phone": "+1 415 555 0102",
     "role": "VP of Operations",
-    "avatarColor": "#0F766E",
+    "avatarColor": "blue",
     "createdAt": "2024-03-05T10:00:00.000Z",
-    "updatedAt": "2024-03-05T10:00:00.000Z"
+    "updatedAt": "2026-06-14T11:15:21.643Z"
   },
   {
     "id": "cnt_002",
@@ -70,18 +70,5 @@
     "id": "cnt_mqdmirya1vq671",
     "createdAt": "2026-06-14T10:10:38.722Z",
     "updatedAt": "2026-06-14T10:10:38.722Z"
-  },
-  {
-    "companyId": "cmp_001",
-    "firstName": "Ali",
-    "lastName": "Irfansyah",
-    "email": "codevwithali@gmail.com",
-    "phone": "+6285890081550",
-    "role": "Software Engineering",
-    "avatarColor": "rose",
-    "avatarImage": "/data/image/customers_image/Ali-Irfansyah-1781433548885.jpeg",
-    "id": "cnt_mqdnjfjgwijszm",
-    "createdAt": "2026-06-14T10:39:08.908Z",
-    "updatedAt": "2026-06-14T10:39:08.908Z"
   }
 ]

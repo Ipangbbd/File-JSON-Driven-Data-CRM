@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description, actions, meta }: PageHeaderProps) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-4 py-6">
+    <div className="flex flex-wrap items-end justify-between gap-4 py-6 min-h-[56px]">
       <div>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground">{title}</h1>
         {description && (
