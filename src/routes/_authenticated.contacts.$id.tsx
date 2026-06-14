@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Edit2, Save, Trash2, X } from "lucide-react";
 
 import { PageHeader } from "@/components/crm/PageHeader";
@@ -16,6 +16,8 @@ import {
 import { useStore } from "@/lib/providers/DataProvider";
 import { companiesService } from "@/lib/services/companies.service";
 import { contactsService } from "@/lib/services/contacts.service";
+import { saveImage } from "@/lib/api/image.functions";
+import { readFileAsBase64 } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_authenticated/contacts/$id")({
@@ -41,6 +43,11 @@ function ContactDetailPage() {
   const [role, setRole] = useState("");
   const [companyId, setCompanyId] = useState("");
   const [avatarColor, setAvatarColor] = useState("");
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imageError, setImageError] = useState<string | null>(null);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   if (!contact) {
@@ -62,11 +69,42 @@ function ContactDetailPage() {
     setRole(contact.role);
     setCompanyId(contact.companyId);
     setAvatarColor(contact.avatarColor);
+    setImagePreview(contact.avatarImage ?? null);
+    setImageFile(null);
+    setImageError(null);
     setError(null);
     setIsEditing(true);
   };
 
-  const handleSave = () => {
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] ?? null;
+    if (!file) {
+      setImageFile(null);
+      setImagePreview(contact.avatarImage ?? null);
+      setImageError(null);
+      return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      setImageError("Image must be 2MB or smaller.");
+      setImageFile(null);
+      setImagePreview(contact.avatarImage ?? null);
+      return;
+    }
+
+    if (!["image/jpeg", "image/png", "image/webp", "image/gif"].includes(file.type)) {
+      setImageError("Only JPEG, PNG, WEBP, and GIF images are allowed.");
+      setImageFile(null);
+      setImagePreview(contact.avatarImage ?? null);
+      return;
+    }
+
+    setImageError(null);
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+  };
+
+  const handleSave = async () => {
     setError(null);
     if (!firstName.trim() || !lastName.trim()) {
       setError("First and Last name are required.");
@@ -82,6 +120,19 @@ function ContactDetailPage() {
     }
 
     try {
+      setIsSaving(true);
+      setStatusMessage(null);
+      const avatarImage = imageFile
+        ? (await saveImage({
+            data: {
+              collection: "contacts",
+              fileName: `${contact.id}-${Date.now()}`,
+              mimeType: imageFile.type,
+              base64Data: await readFileAsBase64(imageFile),
+            },
+          })).path
+        : contact.avatarImage;
+
       contactsService.update(contact.id, {
         firstName,
         lastName,
@@ -90,10 +141,14 @@ function ContactDetailPage() {
         role,
         companyId,
         avatarColor,
+        avatarImage,
       });
+      setStatusMessage("Contact updated successfully.");
       setIsEditing(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to update contact.");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -125,11 +180,11 @@ function ContactDetailPage() {
         <div className="flex items-center gap-2">
           {isEditing ? (
             <>
-              <Button variant="outline" size="sm" className="rounded-full" onClick={() => setIsEditing(false)}>
+              <Button variant="outline" size="sm" className="rounded-full" onClick={() => setIsEditing(false)} disabled={isSaving}>
                 <X className="mr-1 h-4 w-4" /> Cancel
               </Button>
-              <Button size="sm" className="rounded-full" onClick={handleSave}>
-                <Save className="mr-1 h-4 w-4" /> Save
+              <Button size="sm" className="rounded-full" onClick={handleSave} disabled={isSaving}>
+                <Save className="mr-1 h-4 w-4" /> {isSaving ? "Saving..." : "Save"}
               </Button>
             </>
           ) : (
@@ -150,6 +205,11 @@ function ContactDetailPage() {
         description={`${contact.role} at ${company?.name ?? "Unknown Company"}`}
       />
 
+      {statusMessage && (
+        <div className="rounded-xl bg-success/10 p-3 text-sm text-success font-medium">
+          {statusMessage}
+        </div>
+      )}
       {error && (
         <div className="rounded-xl bg-destructive/10 p-3 text-sm text-destructive font-medium">
           {error}
@@ -161,6 +221,7 @@ function ContactDetailPage() {
           <UserAvatar
             initials={`${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}`}
             color={contact.avatarColor}
+            imageSrc={imagePreview ?? contact.avatarImage}
             size="lg"
           />
           <div>

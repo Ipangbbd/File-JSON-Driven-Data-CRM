@@ -20,6 +20,7 @@ interface AuthContextValue {
   logout: () => void;
   can: (permission: Permission) => boolean;
   permissions: readonly Permission[];
+  refreshUser: () => void;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -47,6 +48,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   }, []);
 
+  const refreshUser = useCallback(() => {
+    const restored = authService.restore();
+    setUser(restored?.user ?? null);
+  }, []);
+
   const can = useCallback(
     (permission: Permission) => (user ? hasPermission(user.role, permission) : false),
     [user],
@@ -65,6 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       logout,
       can,
       permissions: user ? permissionsFor(user.role) : [],
+      refreshUser,
     };
   }, [initialized, user, login, logout, can]);
 

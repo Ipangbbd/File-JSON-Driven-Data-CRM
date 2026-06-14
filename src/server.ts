@@ -39,6 +39,62 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const url = new URL(request.url);
+    if (url.pathname.startsWith("/data/image/")) {
+      try {
+        const fs = await import("fs/promises");
+        const path = await import("path");
+
+        const segments = url.pathname.split("/").filter(Boolean);
+        if (segments.length < 4 || segments[0] !== "data" || segments[1] !== "image") {
+          return new Response("Not found", { status: 404 });
+        }
+
+        const safeSegments = segments.slice(2).map((segment) => segment.replace(/\/\\|\.\.|\s+/g, "_"));
+
+        // Try the primary image root first (src/data/image), then fall back to the legacy
+        // location where images were previously written (src/lib/data/image).
+        const candidateRoots = [
+          path.join(process.cwd(), "src", "data", "image"),
+          path.join(process.cwd(), "src", "lib", "data", "image"),
+        ];
+
+        let file: Uint8Array | null = null;
+        let targetPath = "";
+        for (const root of candidateRoots) {
+          const candidate = path.join(root, ...safeSegments);
+          try {
+            const buf = await fs.readFile(candidate);
+            file = buf;
+            targetPath = candidate;
+            break;
+          } catch {
+            // try next root
+          }
+        }
+
+        if (!file) {
+          return new Response("Not found", { status: 404 });
+        }
+
+        const extension = path.extname(targetPath).slice(1).toLowerCase();
+        const contentType = {
+          jpg: "image/jpeg",
+          jpeg: "image/jpeg",
+          png: "image/png",
+          webp: "image/webp",
+          gif: "image/gif",
+        }[extension] ?? "application/octet-stream";
+
+        return new Response(file, {
+          status: 200,
+          headers: { "content-type": contentType },
+        });
+      } catch {
+        return new Response("Not found", { status: 404 });
+      }
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);

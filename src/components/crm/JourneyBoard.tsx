@@ -18,6 +18,14 @@ const STAGE_TONE: Record<string, string> = {
   new_tasks: "from-[oklch(0.97_0.012_270)] to-[oklch(0.93_0.04_295)]",
 };
 
+// Dark-mode variants for the stage tones (subtle, darker tints)
+const STAGE_TONE_DARK: Record<string, string> = {
+  case_allocation: "dark:from-[oklch(0.12_0.02_260)] dark:to-[oklch(0.08_0.02_260)]",
+  issue_identification: "dark:from-[oklch(0.13_0.02_252)] dark:to-[oklch(0.09_0.02_252)]",
+  technical_resolution: "dark:from-[oklch(0.13_0.02_18)] dark:to-[oklch(0.09_0.02_18)]",
+  new_tasks: "dark:from-[oklch(0.13_0.02_295)] dark:to-[oklch(0.09_0.02_295)]",
+};
+
 export function JourneyBoard({ journeyId }: { journeyId: string }) {
   const board = useStore<JourneyBoardModel | null>(() => journeysService.board(journeyId));
   const users = useStore(() => usersService.list());
@@ -40,7 +48,10 @@ export function JourneyBoard({ journeyId }: { journeyId: string }) {
     <section
       className={cn(
         "surface-card relative overflow-hidden bg-gradient-to-br p-6 lg:p-8",
+        // light theme gradient (keeps existing look)
         "from-[oklch(0.97_0.01_260)] to-[oklch(0.94_0.03_268)]",
+        // in dark mode use a subtle surface background and make the gradient transparent
+        "dark:from-transparent dark:to-transparent dark:bg-surface/20",
       )}
     >
       <header className="mb-6 flex flex-wrap items-center justify-between gap-4">
@@ -62,7 +73,7 @@ export function JourneyBoard({ journeyId }: { journeyId: string }) {
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {stages.map(({ stage, tasks }) => (
-          <StageColumn key={stage.id} title={stage.title} tone={STAGE_TONE[stage.kind]}>
+          <StageColumn key={stage.id} title={stage.title} tone={STAGE_TONE[stage.kind]} darkTone={STAGE_TONE_DARK[stage.kind]}>
             {tasks.length === 0 ? (
               <EmptyStage />
             ) : stage.kind === "case_allocation" ? (
@@ -95,15 +106,21 @@ function IconButton({ children }: { children: React.ReactNode }) {
 function StageColumn({
   title,
   tone,
+  darkTone,
   children,
 }: {
   title: string;
   tone?: string;
+  darkTone?: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <div className={cn("surface-panel flex flex-col gap-3 bg-gradient-to-b p-3", tone)}>
+      <div className={cn(
+        "surface-panel flex flex-col gap-3 bg-gradient-to-b p-3",
+        tone,
+        darkTone,
+      )}>
         {children}
       </div>
       <div className="text-center text-xs font-medium text-muted-foreground">{title}</div>
@@ -113,7 +130,7 @@ function StageColumn({
 
 function EmptyStage() {
   return (
-    <div className="rounded-2xl border border-dashed border-border bg-surface/50 px-3 py-6 text-center text-xs text-muted-foreground">
+    <div className="rounded-2xl border border-dashed border-border bg-surface/50 dark:bg-surface/30 px-3 py-6 text-center text-xs text-muted-foreground">
       No work in this stage yet.
     </div>
   );
@@ -122,10 +139,10 @@ function EmptyStage() {
 function AllocationCard({ task, assignee }: { task: Task; assignee: User | null }) {
   const { user, can } = useAuth();
   return (
-    <article className="surface-panel flex flex-col gap-3 bg-surface p-4">
+    <article className="surface-panel flex flex-col gap-3 bg-surface dark:bg-surface/80 p-4">
       <div className="flex items-center justify-between">
         {assignee ? (
-          <UserAvatar initials={assignee.initials} color={assignee.avatarColor} size="md" />
+          <UserAvatar initials={assignee.initials} color={assignee.avatarColor} imageSrc={assignee.avatarImage} size="md" />
         ) : (
           <div className="h-10 w-10 rounded-full bg-secondary" />
         )}
@@ -152,12 +169,12 @@ function TaskRow({ task, assignee }: { task: Task; assignee: User | null }) {
   return (
     <article
       className={cn(
-        "surface-panel flex items-center gap-3 bg-surface px-3 py-2.5",
+        "surface-panel flex items-center gap-3 bg-surface dark:bg-surface/80 px-3 py-2.5",
         task.status === "completed" && "opacity-80",
       )}
     >
       {assignee ? (
-        <UserAvatar initials={assignee.initials} color={assignee.avatarColor} size="sm" />
+        <UserAvatar initials={assignee.initials} color={assignee.avatarColor} imageSrc={assignee.avatarImage} size="sm" />
       ) : (
         <span className="grid h-8 w-8 place-items-center rounded-full border border-dashed border-border text-muted-foreground">
           <Plus className="h-3.5 w-3.5" />

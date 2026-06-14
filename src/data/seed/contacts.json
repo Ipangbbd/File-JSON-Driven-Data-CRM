@@ -70,5 +70,18 @@
     "id": "cnt_mqdmirya1vq671",
     "createdAt": "2026-06-14T10:10:38.722Z",
     "updatedAt": "2026-06-14T10:10:38.722Z"
+  },
+  {
+    "companyId": "cmp_001",
+    "firstName": "Ali",
+    "lastName": "Irfansyah",
+    "email": "codevwithali@gmail.com",
+    "phone": "+6285890081550",
+    "role": "Software Engineering",
+    "avatarColor": "rose",
+    "avatarImage": "/data/image/customers_image/Ali-Irfansyah-1781433548885.jpeg",
+    "id": "cnt_mqdnjfjgwijszm",
+    "createdAt": "2026-06-14T10:39:08.908Z",
+    "updatedAt": "2026-06-14T10:39:08.908Z"
   }
 ]

@@ -46,6 +46,7 @@ export interface User extends Entity {
   role: UserRole;
   jobTitle: string;
   avatarColor: string;
+  avatarImage?: string;
   initials: string;
   status: "active" | "suspended";
   lastLoginAt: ISODateString | null;
@@ -79,6 +80,7 @@ export interface Contact extends Entity {
   phone: string;
   role: string;
   avatarColor: string;
+  avatarImage?: string;
 }
 
 /* ------------------------------------------------------------------ */

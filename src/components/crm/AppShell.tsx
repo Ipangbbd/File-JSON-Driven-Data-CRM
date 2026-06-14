@@ -73,8 +73,8 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen bg-canvas">
-      {/* Compact icon rail */}
-      <aside className="hidden w-[72px] flex-col items-center justify-between border-r border-border bg-sidebar py-6 lg:flex">
+      {/* Compact icon rail (fixed on large screens) */}
+      <aside className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:w-[72px] flex-col items-center justify-between border-r border-border bg-sidebar py-6 lg:flex">
         <div className="flex flex-col items-center gap-2">
           <Link to="/" className="grid h-11 w-11 place-items-center rounded-2xl bg-primary text-primary-foreground">
             <Shield className="h-5 w-5" />
@@ -92,14 +92,14 @@ export function AppShell({ children }: { children: ReactNode }) {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           />
           <Link to={ROUTES.profile.path} className="grid h-10 w-10 place-items-center rounded-full">
-            <UserAvatar initials={user.initials} color={user.avatarColor} size="md" />
+            <UserAvatar initials={user.initials} color={user.avatarColor} imageSrc={user.avatarImage} size="md" />
           </Link>
         </div>
       </aside>
 
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex min-w-0 flex-1 flex-col lg:pl-[72px]">
         <TopBar pathname={pathname} navigation={navigation} onLogout={logout} />
-        <main className="mx-auto w-full max-w-[1600px] flex-1 px-6 pb-12 pt-2 lg:px-10">{children}</main>
+        <main className="mx-auto w-full max-w-[1600px] flex-1 px-6 pb-12 pt-16 lg:px-10">{children}</main>
       </div>
     </div>
   );
@@ -207,7 +207,7 @@ function TopBar({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="flex items-center gap-2 rounded-full bg-surface py-1 pl-1 pr-3 text-left">
-                <UserAvatar initials={user.initials} color={user.avatarColor} size="sm" />
+                <UserAvatar initials={user.initials} color={user.avatarColor} imageSrc={user.avatarImage} size="sm" />
                 <span className="hidden text-sm font-medium lg:inline">
                   {user.firstName} {user.lastName}
                 </span>

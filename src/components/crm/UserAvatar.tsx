@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 interface AvatarProps {
   initials: string;
   color: string;
+  imageSrc?: string;
   size?: "xs" | "sm" | "md" | "lg";
   className?: string;
   title?: string;
@@ -15,15 +16,33 @@ const SIZE_CLASS: Record<NonNullable<AvatarProps["size"]>, string> = {
   lg: "h-12 w-12 text-base",
 };
 
-export function UserAvatar({ initials, color, size = "md", className, title }: AvatarProps) {
+export function UserAvatar({ initials, color, imageSrc, size = "md", className, title }: AvatarProps) {
+  const baseClasses = cn(
+    "inline-flex overflow-hidden rounded-full font-medium text-white ring-2 ring-surface",
+    SIZE_CLASS[size],
+    className,
+  );
+
+  if (imageSrc) {
+    return (
+      <span title={title} className={baseClasses} style={{ backgroundColor: color }}>
+        <img
+          src={imageSrc}
+          alt={title ?? initials}
+          className="h-full w-full object-cover"
+          onError={(e) => {
+            const target = e.currentTarget as HTMLImageElement;
+            target.style.display = "none";
+          }}
+        />
+      </span>
+    );
+  }
+
   return (
     <span
       title={title}
-      className={cn(
-        "inline-flex items-center justify-center rounded-full font-medium text-white ring-2 ring-surface",
-        SIZE_CLASS[size],
-        className,
-      )}
+      className={baseClasses}
       style={{ backgroundColor: color }}
     >
       {initials}

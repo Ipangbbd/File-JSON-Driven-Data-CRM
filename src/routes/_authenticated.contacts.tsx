@@ -58,6 +58,7 @@ function ContactsPage() {
                           <UserAvatar
                             initials={`${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}`}
                             color={contact.avatarColor}
+                            imageSrc={contact.avatarImage}
                             size="sm"
                           />
                           <span className="font-medium text-foreground">

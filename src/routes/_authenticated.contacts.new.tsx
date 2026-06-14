@@ -16,6 +16,8 @@ import {
 import { useStore } from "@/lib/providers/DataProvider";
 import { companiesService } from "@/lib/services/companies.service";
 import { contactsService } from "@/lib/services/contacts.service";
+import { saveImage } from "@/lib/api/image.functions";
+import { readFileAsBase64 } from "@/lib/utils";
 
 const searchSchema = z.object({
   defaultCompanyId: z.string().optional(),
@@ -43,9 +45,41 @@ function NewContactPage() {
   const [avatarColor, setAvatarColor] = useState(
     AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
   );
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imageError, setImageError] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] ?? null;
+    if (!file) {
+      setImageFile(null);
+      setImagePreview(null);
+      setImageError(null);
+      return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      setImageError("Image must be 2MB or smaller.");
+      setImageFile(null);
+      setImagePreview(null);
+      return;
+    }
+
+    if (!["image/jpeg", "image/png", "image/webp", "image/gif"].includes(file.type)) {
+      setImageError("Only JPEG, PNG, WEBP, and GIF images are allowed.");
+      setImageFile(null);
+      setImagePreview(null);
+      return;
+    }
+
+    setImageError(null);
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
@@ -63,6 +97,18 @@ function NewContactPage() {
     }
 
     try {
+      setIsSaving(true);
+      const avatarImage = imageFile
+        ? (await saveImage({
+            data: {
+              collection: "contacts",
+              fileName: `${firstName}-${lastName}-${Date.now()}`,
+              mimeType: imageFile.type,
+              base64Data: await readFileAsBase64(imageFile),
+            },
+          })).path
+        : undefined;
+
       contactsService.create({
         companyId,
         firstName,
@@ -71,6 +117,7 @@ function NewContactPage() {
         phone: phone || "—",
         role: role || "Contributor",
         avatarColor,
+        avatarImage,
       });
       // Navigate back to company detail or contacts list
       if (defaultCompanyId) {
@@ -80,6 +127,8 @@ function NewContactPage() {
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to create contact.");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -191,6 +240,22 @@ function NewContactPage() {
         </div>
 
         <div className="space-y-2">
+          <label className="text-sm font-medium">Profile image</label>
+          <div className="flex items-center gap-3">
+            <label className="rounded-2xl border border-border bg-surface px-4 py-3 text-sm font-medium text-foreground transition hover:bg-muted/10 cursor-pointer">
+              Select image
+              <input
+                type="file"
+                accept="image/*"
+                className="sr-only"
+                onChange={handleFileChange}
+              />
+            </label>
+            {imagePreview && (
+              <img src={imagePreview} alt="Contact preview" className="h-14 w-14 rounded-2xl object-cover" />
+            )}
+          </div>
+          {imageError && <p className="text-xs text-destructive">{imageError}</p>}
           <label className="text-sm font-medium">Avatar Color</label>
           <div className="flex gap-2">
             {AVATAR_COLORS.map((color) => {
@@ -232,8 +297,8 @@ function NewContactPage() {
           >
             Cancel
           </Button>
-          <Button type="submit" className="rounded-full">
-            <Save className="mr-1.5 h-4 w-4" /> Save Contact
+          <Button type="submit" className="rounded-full" disabled={isSaving}>
+            <Save className="mr-1.5 h-4 w-4" /> {isSaving ? "Saving..." : "Save Contact"}
           </Button>
         </div>
       </form>

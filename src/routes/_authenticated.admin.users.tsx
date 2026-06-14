@@ -59,7 +59,7 @@ function UsersAdminPage() {
                 <tr key={u.id} className="border-t border-border">
                   <td className="px-6 py-3">
                     <div className="flex items-center gap-3">
-                      <UserAvatar initials={u.initials} color={u.avatarColor} size="sm" />
+                      <UserAvatar initials={u.initials} color={u.avatarColor} imageSrc={u.avatarImage} size="sm" />
                       <div>
                         <div className="font-medium">
                           {u.firstName} {u.lastName}

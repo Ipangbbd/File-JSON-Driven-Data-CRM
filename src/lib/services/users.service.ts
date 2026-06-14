@@ -14,6 +14,7 @@ export interface UserDraft {
   role: UserRole;
   password: string;
   avatarColor?: string;
+  avatarImage?: string;
 }
 
 const PALETTE = ["#0F172A", "#1D4ED8", "#0EA5A4", "#F97316", "#DB2777", "#9333EA", "#16A34A"];
@@ -53,10 +54,14 @@ export const usersService = {
       jobTitle: draft.jobTitle,
       role: draft.role,
       avatarColor: draft.avatarColor ?? pickColor(draft.email),
+      avatarImage: draft.avatarImage,
       initials: initialsFor(draft.firstName, draft.lastName),
       status: "active",
       lastLoginAt: null,
     });
+  },
+  update(id: ID, patch: Partial<Omit<User, "id" | "createdAt">>): User {
+    return usersRepo.update(id, patch);
   },
   updateRole(id: ID, role: UserRole): User {
     return usersRepo.update(id, { role });
